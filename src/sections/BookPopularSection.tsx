@@ -41,7 +41,7 @@ const StatsCard: React.FC<{
   subtitle: string;
   color: string;
 }> = ({ icon, title, value, subtitle, color }) => (
-  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 transition-all duration-300 hover:shadow-md">
+  <div className=" bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 transition-all duration-300 hover:shadow-md">
     <div className="flex items-center space-x-4">
       <div className={`p-3 rounded-full ${color}`}>{icon}</div>
       <div>

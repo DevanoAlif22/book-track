@@ -97,7 +97,7 @@ const FavoriteBookList: React.FC = () => {
 
         {/* Category Statistics */}
         {showStats && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <div className="mb-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center space-x-2">
               <Tag className="h-5 w-5 text-blue-500" />
               <span>Statistik Berdasarkan Kategori</span>
