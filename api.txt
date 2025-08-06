@@ -1,0 +1,1108 @@
+GET ALL : 
+bukuacak-9bdcb4ef2605.herokuapp.com/api/v1/book?page=1
+
+{
+  "books": [
+    {
+      "_id": "6782324379bd51cee772b72d",
+      "title": "Harry Potter dan Si Anak Terkutuk: Naskah Drama Orisinal",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94735/Fiksi_-_Harry_Potter_dan_Si_Anak_Terkutuk_Naskah_Drama_Orisinal.jpg",
+      "author": {
+        "name": "J.K. Rowling",
+        "url": "https://gpu.id/author/34442/j-k-rowling"
+      },
+      "category": {
+        "name": "Drama",
+        "url": "https://gpu.id/categories/fiction-literature/drama"
+      },
+      "summary": "Menjadi Harry Potter memang sulit dan sekarang pun tidak lebih mudah ketika ia menjadi pegawai Kementerian Sihir yang kelelahan, suami, dan ayah tiga anak usia sekolah.Sementara Harry berjuang menghadapi masa lalu yang mengikutinya, putra bungsunya, Albus, harus berjuang menghadapi beban warisan keluarga yang tak pernah ia inginkan. Ketika masa lalu dan masa sekarang melebur, ayah dan anak pun mengetahui fakta yang tidak menyenangkan: terkadang kegelapan datang dari tempat-tempat yang tak terduga.Berdasarkan cerita asli baru karya J.K. Rowling, John Tiffany, dan Jack Thorne, naskah untuk Harry Potter dan si Anak Terkutuk aslinya dirilis sebagai “edisi latihan khusus” bersama pementasan perdana di West End London pada musim panas 2016.Drama ini mendapat ulasan positif dari para penonton dan kritikus teater, sementara naskahnya segera menjadi bestseller global. Naskah definitif dan final ini berisi dialog drama, juga materi tambahan.",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 139,000",
+        "total_pages": "384 pages",
+        "size": "13.5 x 20 cm",
+        "published_date": "29 January 2025",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "drama",
+          "url": "https://gpu.id/tag/1492/drama"
+        },
+        {
+          "name": "Harry Potter",
+          "url": "https://gpu.id/tag/397/harry-potter"
+        },
+        {
+          "name": "Fantasy",
+          "url": "https://gpu.id/tag/280/fantasy"
+        },
+        {
+          "name": "Novel Fantasi",
+          "url": "https://gpu.id/tag/951/novel-fantasi"
+        },
+        {
+          "name": "Science Fiction & Fantasy",
+          "url": "https://gpu.id/tag/821/science-fiction-fantasy"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Harry+Potter+dan+Si+Anak+Terkutuk%3A+Naskah+Drama+Orisinal"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782324179bd51cee772b72c",
+      "title": "Focus on What Matters",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94734/Hum_-_Focus_on_What_Matters.jpg",
+      "author": {
+        "name": "Darius Foroux",
+        "url": "https://gpu.id/author/40735/darius-foroux"
+      },
+      "category": {
+        "name": "Self-Improvement",
+        "url": "https://gpu.id/categories/nonfiction/self-improvement"
+      },
+      "summary": "Mengapa begitu sulit untuk hidup sejahtera di tengah kekacauan dan kebisingan? Ini bukan masalah dunia modern saja, melainkan persoalan manusia sepanjang masa.Dua ribu tahun lalu, para Stoik kuno sudah membicarakan tantangan-tantangan yang kita hadapi saat ini, seperti:• Bagaimana cara menemukan ketenangan batin?• Apa yang dibutuhkan untuk menjadi bahagia?• Bisakah kita menjadi lebih tangguh?Jawabannya dapat ditemukan dalam Stoikisme.Fokus Saja pada yang Penting merupakan kumpulan 70 surat/esai tentang berbagai aspek kehidupan, mulai dari kebahagiaan, kekayaan, kesehatan, sampai relasi. Surat-surat ini terinspirasi dari Letters from A Stoic karya Seneca sang filsuf Stoik. Sejak 2014, saya menerapkan pola pikir Stoik untuk mengubah kehidupan dan karier saya. Buku ini merupakan pengingat bagi Anda untuk fokus pada hal yang benar dalam kehidupan yang kacau ini, berupa antara lain:• latihan pikiran sederhana yang menjadikan Anda lebih tangguh dan fokus,• cara menikmati setiap momen setiap hari,• nilai-nilai Stoik yang autentik untuk meraih kehidupan yang bahagia, dan• metode yang membantu Anda lebih disiplin.",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 119,000",
+        "total_pages": "294 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "21 January 2025",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Self Improvement",
+          "url": "https://gpu.id/tag/14/self-improvement"
+        },
+        {
+          "name": "Self-Improvement",
+          "url": "https://gpu.id/tag/313/self-improvement"
+        },
+        {
+          "name": "Self Transformation",
+          "url": "https://gpu.id/tag/1285/self-transformation"
+        },
+        {
+          "name": "pengembangan diri",
+          "url": "https://gpu.id/tag/189/pengembangan-diri"
+        },
+        {
+          "name": "buku pengembangan diri",
+          "url": "https://gpu.id/tag/889/buku-pengembangan-diri"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Focus+on+What+Matters"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323279bd51cee772b724",
+      "title": "Petualangan Sukab",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94726/petualangan_sukab.jpg",
+      "author": {
+        "name": "Seno Gumira Ajidarma",
+        "url": "https://gpu.id/author/34521/seno-gumira-ajidarma"
+      },
+      "category": {
+        "name": "Literary",
+        "url": "https://gpu.id/categories/fiction-literature/literary"
+      },
+      "summary": "WASPADA!AWASI TANGAN ANDA!Saudara-saudara sebangsa dan setanah air, sebagai kelanjutan masalah penemuan tangan, diketahui bahwa ternyata banyak tangan telah dipotong, dibawa pergi, dan tidak diketahui di mana rimbanya, kecuali beberapa yang ditemukan secara kebetulan. Saudara-saudara sebangsa dan setanah air, Pemberitahuan ini disampaikan, karena tidak bisa dipastikan pemotongan tangan tersebut sudah berhenti.WASPADA! AWASI TANGAN ANDA!",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 99,000",
+        "total_pages": "174 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "25 December 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Novel",
+          "url": "https://gpu.id/tag/25/novel"
+        },
+        {
+          "name": "sastra",
+          "url": "https://gpu.id/tag/164/sastra"
+        },
+        {
+          "name": "novel sastra",
+          "url": "https://gpu.id/tag/172/novel-sastra"
+        },
+        {
+          "name": "sastra indonesia",
+          "url": "https://gpu.id/tag/222/sastra-indonesia"
+        },
+        {
+          "name": "Seno Gumira Ajidarma",
+          "url": "https://gpu.id/tag/400/seno-gumira-ajidarma"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782322079bd51cee772b71a",
+      "title": "Satine",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94716/Fiksi_-_Satine.jpg",
+      "author": {
+        "name": "Ika Natassa",
+        "url": "https://gpu.id/author/36394/ika-natassa"
+      },
+      "category": {
+        "name": "MetroPop",
+        "url": "https://gpu.id/categories/fiction-literature/metropop"
+      },
+      "summary": "“I just need a proper date.”“Saya cuma butuh teman bicara.”Ada yang bilang hidup yang tertata sempurna ibarat makanan yang dikemas rapi. Semuanya tersusun pada tempatnya, cantik. Lalu, tanpa disangka terjadilah satu peristiwa, kemasan itu tersenggol, dan isinya berserakan di lantai.Hidup yang selama ini dikenal Satine runtuh saat ia menyadari dirinya tidak lebih dari sekadar perempuan kesepian. Dalam kenekatan seseorang yang selalu bisa menyelesaikan apa pun dalam hidupnya, Satine menemukan solusi yang mempertemukannya dengan lelaki asing, Ash. Hubungan yang mereka mulai dengan keterikatan kontrak di atas kertas dan harus tunduk pada aturan, ternyata tunduk pada gejolak perasaan mereka sendiri. Lalu terjadilah peristiwa demi peristiwa yang menghadirkan pertanyaan: “Jika semua hal di muka bumi ini diatur oleh takdir, apakah pertemuan dan perpisahan juga harus takluk pada takdir?”",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 99,000",
+        "total_pages": "320 pages",
+        "size": "13.5 x 20 cm",
+        "published_date": "25 December 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Romance",
+          "url": "https://gpu.id/tag/18/romance"
+        },
+        {
+          "name": "romance novel",
+          "url": "https://gpu.id/tag/226/romance-novel"
+        },
+        {
+          "name": "Romance Novels",
+          "url": "https://gpu.id/tag/934/romance-novels"
+        },
+        {
+          "name": "Metropop",
+          "url": "https://gpu.id/tag/256/metropop"
+        },
+        {
+          "name": "Novel",
+          "url": "https://gpu.id/tag/25/novel"
+        },
+        {
+          "name": "Novel dewasa",
+          "url": "https://gpu.id/tag/174/novel-dewasa"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Satine"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323479bd51cee772b725",
+      "title": "Nemesis #1: City of Evils",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94727/624175002.jpg",
+      "author": {
+        "name": "Lexie Xu",
+        "url": "https://gpu.id/author/37490/lexie-xu"
+      },
+      "category": {
+        "name": "Mysteries & Thrillers",
+        "url": "https://gpu.id/categories/fiction-literature/mysteries-thrillers"
+      },
+      "summary": "Pandora, server milik Yamada Graha Internet (YGnet), menyimpan data-data rahasia tentang beberapa keluarga konglomerat ternama di Indonesia. Server ini pun diincar oleh sekelompok orang. Bahkan manajer Cyber Security dan manajer HR perusahaan tersebut ikut mendalangi rencana pencurian datanya.Namun, niat jahat mereka diketahui oleh Natasha Samudra, satu-satunya senior engineer di Divisi Cyber Security. Natasha tak pernah punya teman seumur hidupnya. Kecuali satu teman online-nya, seorang hacker yang disebut sebagai G.Karena mengalami kesulitan untuk mencuri data-data dalam Pandora, sang manajer Cyber Security berusaha merekrut Natasha. Pada saat bersamaan, perusahaan mengalami pergantian manajemen. Ada empat general manager baru yang ditunjuk untuk mengawasi YGnet. Rei Yamada, selalu tampil cool dan punya daya ingat fotografis. Red Hadiputra, pintar sekaligus womanizer. Ryan Winata, agak kasar, seenaknya, dan suka menentang peraturan. Juga Rhys Gunawan, mantan penyanyi indie yang diidolakan oleh Natasha.Bersama keempat pria ini, Natasha harus menghadapi para penjahat yang ternyata lebih jahat daripada yang dia duga.",
+      "details": {
+        "no_gm": "624175002",
+        "isbn": "978-602-06-8017-0",
+        "price": "Rp 129,000",
+        "total_pages": "472 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "18 December 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Thriller",
+          "url": "https://gpu.id/tag/661/thriller"
+        },
+        {
+          "name": "Lexie Xu",
+          "url": "https://gpu.id/tag/589/lexie-xu"
+        },
+        {
+          "name": "Mystery & Thrillers",
+          "url": "https://gpu.id/tag/549/mystery-thrillers"
+        },
+        {
+          "name": "Thrillers",
+          "url": "https://gpu.id/tag/310/thrillers"
+        },
+        {
+          "name": "novel thriller",
+          "url": "https://gpu.id/tag/230/novel-thriller"
+        },
+        {
+          "name": "LexieXu",
+          "url": "https://gpu.id/tag/39/lexiexu"
+        },
+        {
+          "name": "lokal",
+          "url": "https://gpu.id/tag/1504/lokal"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/nemesis-series-1-city-of-evils"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323079bd51cee772b723",
+      "title": "Satu Pendendam (One of Us is Back)",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94725/624160008.jpg",
+      "author": {
+        "name": "Karen M. McManus",
+        "url": "https://gpu.id/author/39778/karen-m-mcmanus"
+      },
+      "category": {
+        "name": "Mysteries & Thrillers",
+        "url": "https://gpu.id/categories/fiction-literature/mysteries-thrillers"
+      },
+      "summary": "Bayview High seakan tidak bisa dibuat tenang. Salah satu papan reklame digital di pusat kota menayangkan iklan yang menarik perhatian. SAATNYA PERMAINAN BARU, BAYVIEW. Hanya itu kata-katanya, warna merah dengan latar belakang putih bersih. Lalu selebaran dengan kalimat yang sama pun ada di mana-mana.Kemudian salah satu Kru Bayview menghilang. Permainan yang disebut di papan reklame itu menjadi urusan serius bagi anggota Kru Bayview yang lain. Permainan yang tak satu pun dari mereka mengerti aturannya. Semua orang bisa menjadi targetnya.Masalahnya, Simon selalu mengatakan hal yang benar tentang rahasia---semua pasti akan terbongkar. Dan Bayview masih punya banyak rahasia yang disembunyikan. Rahasia yang berujung pada dendam.",
+      "details": {
+        "no_gm": "624160008",
+        "isbn": "978-602-06-8003-3",
+        "price": "Rp 119,000",
+        "total_pages": "424 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "11 December 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Thriller",
+          "url": "https://gpu.id/tag/661/thriller"
+        },
+        {
+          "name": "Mystery & Thrillers",
+          "url": "https://gpu.id/tag/549/mystery-thrillers"
+        },
+        {
+          "name": "Thrillers",
+          "url": "https://gpu.id/tag/310/thrillers"
+        },
+        {
+          "name": "novel thriller",
+          "url": "https://gpu.id/tag/230/novel-thriller"
+        },
+        {
+          "name": "Thrilers Novel",
+          "url": "https://gpu.id/tag/42/thrilers-novel"
+        },
+        {
+          "name": "Novel",
+          "url": "https://gpu.id/tag/25/novel"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/satu-pendendam-one-of-us-is-back"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323a79bd51cee772b728",
+      "title": "Dewa Angkara Murka",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94730/624171011.jpg",
+      "author": {
+        "name": "Aya Widjaja",
+        "url": "https://gpu.id/author/40541/aya-widjaja"
+      },
+      "category": {
+        "name": "MetroPop",
+        "url": "https://gpu.id/categories/fiction-literature/metropop"
+      },
+      "summary": "Namanya Dewangkara Maheswara. Namun, anak buahnya sepakat mengganti namanya menjadi Dewa Angkara Murka. Selain tukang murka, dia juga suka bertitah bagai dewa. Apa pun yang diinginkan harus tercapai saat itu juga. Termasuk saat Dewang “memerintah” Mosha menjadi “pasangannya” supaya dia batal dijodohkan.Mosha awalnya menolak. Namun, undangan pernikahan dari Kyle—rekan kerja sekaligus mantan pacar—membuat hati Mosha terbakar. Selama lima tahun pacaran, Kyle bilang dia tidak percaya komitmen. Tak lama setelah putus, Kyle malah menikah. Tentu saja Mosha sakit hati.Mosha akhirnya membuat perjanjian dengan iblis—eh, Dewang. Adakah cara yang lebih jitu untuk membalas mantan selain menghadiri pernikahannya dengan membawa pasangan yang jauh lebih keren? “Kita nggak mungkin dibilang setingan karena nggak masuk akal karyawan nyuruh bosnya nemenin dia ke kondangan mantan.”",
+      "details": {
+        "no_gm": "624171011",
+        "isbn": "978-602-06-8009-5",
+        "price": "Rp 109,000",
+        "total_pages": "416 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "11 December 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Romance Novels",
+          "url": "https://gpu.id/tag/934/romance-novels"
+        },
+        {
+          "name": "Metropop",
+          "url": "https://gpu.id/tag/256/metropop"
+        },
+        {
+          "name": "kisah romantis",
+          "url": "https://gpu.id/tag/227/kisah-romantis"
+        },
+        {
+          "name": "romance novel",
+          "url": "https://gpu.id/tag/226/romance-novel"
+        },
+        {
+          "name": "novel remaja",
+          "url": "https://gpu.id/tag/216/novel-remaja"
+        },
+        {
+          "name": "romantis",
+          "url": "https://gpu.id/tag/213/romantis"
+        },
+        {
+          "name": "novel roman",
+          "url": "https://gpu.id/tag/175/novel-roman"
+        },
+        {
+          "name": "Roman",
+          "url": "https://gpu.id/tag/147/roman"
+        },
+        {
+          "name": "Novel",
+          "url": "https://gpu.id/tag/25/novel"
+        },
+        {
+          "name": "Romance",
+          "url": "https://gpu.id/tag/18/romance"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/metropop-dewa-angkara-murka"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782322d79bd51cee772b721",
+      "title": "Bauksit Indonesia",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94723/624220002.jpg",
+      "author": {
+        "name": "Prof. Dr. Ir. Irwandy Arif, M. Sc",
+        "url": "https://gpu.id/author/38793/prof-dr-ir-irwandy-arif-m-sc"
+      },
+      "category": {
+        "name": "Science & Nature",
+        "url": "https://gpu.id/categories/nonfiction/science-nature"
+      },
+      "summary": "Bauksit Indonesia memaparkan secara menyeluruh bauksit sebagai salah satu sumber daya alam yang memiliki peran esensial dalam era transisi energi. Melalui riset yang komprehensif, Penulis mampu memetakan potensi sumber daya dan cadangan bauksit yang tersedia cukup banyak di Indonesia. Dipaparkan secara lengkap pengembangan bauksit, mulai dari genesa atau pembentukan kualitas, proses penambangan, pemanfaatan, hingga pengelolaan residunya. Selain itu, pengolahan dan pemurnian bauksit menjadi alumina, serta proses lanjutan pengolahan alumina menjadi aluminium, juga dijelaskan secara terperinci.Hal lain yang dipaparkan di buku ini adalah pengolahan dan pemurnian bauksit menjadi produk yang bernilai lebih tinggi. Proses hilirisasi tersebut mampu meningkatkan nilai ekonomi bauksit serta mentransformasi bauksit menjadi produk yang lebih kompleks. Beberapa peluang emas lain terkait pengolahan dan pengembangan bauksit, antara lain:prospek peningkatan nilai tambah komoditas bauksit sangat menjanjikan, terutama melalui pengolahan bauksit menjadi alumina dan aluminium;potensi sumber daya dan cadangan bauksit di Indonesia mampu memenuhi kebutuhan bauksit, baik di tingkat nasional maupun internasional;dengan meningkatnya permintaan global terhadap aluminium yang ringan dan tahan korosi, Indonesia berpotensi menjadi pemasok penting dalam rantai pasok bauksit di dunia;menggeliatnya sektor pertambangan bauksit dapat menarik investor dan menguatkan perekonomian nasional secara keseluruhan.Buku ini menjadi referensi penting yang wajib dimiliki oleh pihak-pihak yang terlibat dalam industri pertambangan bauksit, baik sebagai landasan perencanaan strategi bisnis serta pengambilan kebijakan maupun pedoman yang bermanfaat dalam praksis.",
+      "details": {
+        "no_gm": "624220002",
+        "isbn": "978-602-06-7996-9",
+        "price": "Rp 299,000",
+        "total_pages": "346 pages",
+        "size": "15 x 23 cm",
+        "published_date": "11 December 2024",
+        "format": "Hard Cover"
+      },
+      "tags": [
+        {
+          "name": "Sciences & Nature",
+          "url": "https://gpu.id/tag/929/sciences-nature"
+        },
+        {
+          "name": "Nature",
+          "url": "https://gpu.id/tag/453/nature"
+        },
+        {
+          "name": "Science & Nature",
+          "url": "https://gpu.id/tag/315/science-nature"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/bauksit-indonesia"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782320779bd51cee772b70d",
+      "title": "Saat untuk Bermurah Hati (A Time for Mercy)",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94703/624185008.jpg",
+      "author": {
+        "name": "John Grisham",
+        "url": "https://gpu.id/author/34636/john-grisham"
+      },
+      "category": {
+        "name": "Mysteries & Thrillers",
+        "url": "https://gpu.id/categories/fiction-literature/mysteries-thrillers"
+      },
+      "summary": "Clanton, Mississippi. Tahun 1990.Jake Brigance terlibat dalam sebuah persidangan yang rumit ketika pengadilan menunjuknya sebagai pengacara untuk Drew Gamble, anak laki-laki pemalu yang berusia enam belas tahun. Drew dituduh membunuh seorang deputi setempat. Banyak orang di Clanton menginginkan persidangan yang cepat serta hukuman mati atas Drew, namun Jake mendapati ada lebih banyak cerita daripada yang terlihat dari luar. Komitmen kuat Jake untuk menyelamatkan Drew dari hukuman mati membuatnya harus mempertaruhkan kariernya, keamanan finansialnya, serta keselamatan keluarganya.",
+      "details": {
+        "no_gm": "624185008",
+        "isbn": "978-602-06-7976-1",
+        "price": "Rp 199,000",
+        "total_pages": "752 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "04 December 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Thriller",
+          "url": "https://gpu.id/tag/661/thriller"
+        },
+        {
+          "name": "Mystery & Thrillers",
+          "url": "https://gpu.id/tag/549/mystery-thrillers"
+        },
+        {
+          "name": "John Grisham",
+          "url": "https://gpu.id/tag/319/john-grisham"
+        },
+        {
+          "name": "Thrillers",
+          "url": "https://gpu.id/tag/310/thrillers"
+        },
+        {
+          "name": "novel thriller",
+          "url": "https://gpu.id/tag/230/novel-thriller"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/saat-untuk-bermurah-hati-a-time-for-mercy"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323f79bd51cee772b72b",
+      "title": "SAIBAN",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94733/624202032.jpg",
+      "author": {
+        "name": "Oka Rusmini",
+        "url": "https://gpu.id/author/36333/oka-rusmini"
+      },
+      "category": {
+        "name": "Poetry",
+        "url": "https://gpu.id/categories/fiction-literature/poetry"
+      },
+      "summary": "Sebagai sebuah karya sastra, Saiban indah dinikmati dan berharga direnungi. Karya ini tak hanya sumbangan penting bagi khazanah sastra Indonesia, tapi juga berkontribusi bagi kajian sosiologi- antropologi yang berbasis budaya Bali-Hindu. Saiban mengukuhkan jejak Oka sebagai penyair kita yang karya-karyanya layak dikenal oleh para pembaca yang lebih luas, termasuk melalui karya terjemahan.Anton Kurnia, cerpenis dan esais.***Bagi umat Hindu di Bali, tradisi mebanten atau memberikan sesaji merupakan aktivitas sehari-hari. Setiap selesai memasak, orang Bali yang beragama Hindu pasti mempersembahkan sebagian hasil masakannya kepada Tuhan. Persembahan ini dikenal sebagai banten saiban atau jotan.Bagi Oka Rusmini, banten saiban pada hakikatnya bukan sesaji dalam bentuk materi, melainkan sesaji dalam arti rasa syukur yang harus dimiliki oleh setiap orang karena hari ini telah tersedia sepiring nasi untuk melanjutkan hidup. Ditulis pada kurun 2008-2014, buku puisi Saiban berbicara banyak hal tentang cinta, hidup yang berdenyut, dan menawarkan banyak hal.Buku puisi ini adalah semacam upacara tersendiri bagi Oka Rusmini. Suatu ungkapan rasa syukur yang tidak ada habisnya yang ia haturkan kepada Kosmis.",
+      "details": {
+        "no_gm": "624202032",
+        "isbn": "978-602-06-8013-2",
+        "price": "Rp 69,000",
+        "total_pages": "82 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "sastra indonesia",
+          "url": "https://gpu.id/tag/222/sastra-indonesia"
+        },
+        {
+          "name": "sastra",
+          "url": "https://gpu.id/tag/164/sastra"
+        },
+        {
+          "name": "buku puisi",
+          "url": "https://gpu.id/tag/159/buku-puisi"
+        },
+        {
+          "name": "Kumpulan Puisi",
+          "url": "https://gpu.id/tag/98/kumpulan-puisi"
+        },
+        {
+          "name": "Poetry",
+          "url": "https://gpu.id/tag/33/poetry"
+        },
+        {
+          "name": "Puisi",
+          "url": "https://gpu.id/tag/32/puisi"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/saiban-1"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "678231d979bd51cee772b6f4",
+      "title": "Atlas Dunia Hewan",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94678/624120027.jpg",
+      "author": {
+        "name": "Quarto Publishing",
+        "url": "https://gpu.id/author/40809/quarto-publishing"
+      },
+      "category": {
+        "name": "Picture Books",
+        "url": "https://gpu.id/categories/children/picture-books"
+      },
+      "summary": "Temukan hewan-hewan paling menarik di Bumi di atlas penuh warna ini! Cari setiap hewan di habitatnya, hiasi peta dengan stiker warna-warni, dan lengkapi kuis dalam panduan penjelajah untuk menjadi ahli hewan liar!",
+      "details": {
+        "no_gm": "624120027",
+        "isbn": "978-602-06-7941-9",
+        "price": "Rp 179,000",
+        "total_pages": "32 pages",
+        "size": "24 x 27,5 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Anak-anak",
+          "url": "https://gpu.id/tag/1327/anak-anak"
+        },
+        {
+          "name": "Anak",
+          "url": "https://gpu.id/tag/1091/anak"
+        },
+        {
+          "name": "buku anak gramedia",
+          "url": "https://gpu.id/tag/85/buku-anak-gramedia"
+        },
+        {
+          "name": "Buku anak",
+          "url": "https://gpu.id/tag/7/buku-anak"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/atlas-dunia-hewan"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323879bd51cee772b727",
+      "title": "Mengelola Festival Film",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94729/Hum_-_Mengelola_Festival_Film.jpg",
+      "author": {
+        "name": "Ifa Isfansyah",
+        "url": "https://gpu.id/author/40781/ifa-isfansyah"
+      },
+      "category": {
+        "name": "Culture",
+        "url": "https://gpu.id/categories/nonfiction/culture"
+      },
+      "summary": "Buku ini tidak sekadar mendokumentasikan pengalaman menyelenggarakan festival film sejak 2006, tapi juga refleksi dari apa yang sudah dilakukan Jogja-Netpac Asian Film Festival (JAFF) selama ini. Buku ini selain ditujukan untuk kalangan internal JAFF sebagai pegangan penyelenggaraan setiap edisinya, bisa juga diadaptasi sebagai referensi pelaksanaan festival film lain secara umum, terutama di Indonesia. Dengan membaca buku ini, penyelenggara mempunyai acuan untuk menjalankan organisasi dan kegiatan festival, mengidentifikasi karakter festival, memahami teknis pelaksanaan, meningkatkan kapasitas penonton, serta membangun jaringan dan kolaborasi yang tetap mempunyai visi yang sama. Tujuan utama adalah untuk mengingatkan pembaca tentang prinsip dasar, langkah-langkah penting dan keterampilan yang diperlukan, serta kewajiban dalam sebuah penyelenggaraan festival. Festival film tidak sekadar kegiatan menonton film-film tertentu tapi merupakan tempat bertemunya penonton, produser, sales agent, distributor, film critic, filmmaker, buyer dan programmer, juga sebagai ruang promosi, tourism, campaign dan cultural showcase.",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 98,000",
+        "total_pages": "206 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Budaya",
+          "url": "https://gpu.id/tag/994/budaya"
+        },
+        {
+          "name": "Seni",
+          "url": "https://gpu.id/tag/817/seni"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Mengelola+Festival+Film"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323c79bd51cee772b729",
+      "title": "PANDORA",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94731/624202034.jpg",
+      "author": {
+        "name": "Oka Rusmini",
+        "url": "https://gpu.id/author/36333/oka-rusmini"
+      },
+      "category": {
+        "name": "Poetry",
+        "url": "https://gpu.id/categories/fiction-literature/poetry"
+      },
+      "summary": "Biografi tubuh inilah yang terasa dalam 40 sajak di kumpulan puisi Pandora ini. Lihatlah bagaimana ia mengurutkan sajak-sajak di buku ini. Dari mulai Ulat, Kepompong, Kupu-kupu, 1967, dan sajak-sajak yang mengeksplorasi tema anak (Embrio, Schipol, Pasha, Den Haag), hingga Rahib dan Jejak. Deretan sajak itu tampak seperti sebuah metamorfosis tubuh.Tubuh, di tangan penyair ini, keluar dan bahkan meloncat dari bentuk estetiknya. Ia memperlakukan tubuh bagai sebuah menu santapan (Di meja makan kusantap tubuhku, kuteguk air mataku—sajak “Kepompong”).Inilah ketangkasan seorang Oka. Ia menulis, memendam Bali, mencangkul masa lalu, membenturkan tradisi, meringkus pengalaman hidup, dan dengan tanpa sungkan menggasak tubuhnya sendiri demi memperoleh sebuah ars poetica. Inilah “sayap kuat” sajak-sajak Oka, penulis yang menurut saya, menjadi salah satu wakil terpenting penyair Indonesia mutakhir.Yos Rizal Suriaji, “Sebuah Menu Bernama Tubuh”, 2008.… Melalui estetika kekerasan, Pandora menyentakkan kita dari kemapanan, menyadarkan kita pada yang kita sembunyikan di bawah basa-basi, keseharian, dan menohok kemunafikan manusia (yang tega ”menanyakan warna kulit Tuhan”). Pada saat yang sama, kita juga dihadapkan pada suatu kosmologi yang menerima kekerasan sebagai bagian yang tak terpisahkan dari kehidupan itu sendiri.Sejauh manusia mampu menggali hikmah dari penderitaannya, sejauh itu pula kita siap menyantap hidangan yang disediakan oleh Oka Rusmini.Prof. Melani Budianta, ”Pandora: Sebuah Estetika Kekerasan”, majalah Tempo, 2008.",
+      "details": {
+        "no_gm": "624202034",
+        "isbn": "978-602-06-8015-6",
+        "price": "Rp 69,000",
+        "total_pages": "96 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "buku puisi",
+          "url": "https://gpu.id/tag/159/buku-puisi"
+        },
+        {
+          "name": "Kumpulan Puisi",
+          "url": "https://gpu.id/tag/98/kumpulan-puisi"
+        },
+        {
+          "name": "Poetry",
+          "url": "https://gpu.id/tag/33/poetry"
+        },
+        {
+          "name": "Puisi",
+          "url": "https://gpu.id/tag/32/puisi"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/pandora-1"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323d79bd51cee772b72a",
+      "title": "PATIWANGI",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94732/624202033.jpg",
+      "author": {
+        "name": "Oka Rusmini",
+        "url": "https://gpu.id/author/36333/oka-rusmini"
+      },
+      "category": {
+        "name": "Poetry",
+        "url": "https://gpu.id/categories/fiction-literature/poetry"
+      },
+      "summary": "Dalam sajak-sajak Oka Rusmini, warna lokal mencapai perluasan karena dibangun dari akar-akar tradisi yang mencerminkan kedudukan manusia di tengah alam dan budaya tempatan. Dunia esoterik tidak hadir dalam keterasingan tetapi hadir secara meriah dan tajam karena ia tidak hanya menyajikan segi-segi eksotisme, tetapi justru mengasah kritik sosial yang mencerminkan kepedulian terhadap dunia nyata.Korrie Layun Rampan, Angkatan 2000 dalam Sastra Indonesia, 2000.Menulis bagi saya adalah semacam upacara penunda kematian. Dengan sajak, saya bisa berdialog dengan hidup. Berkompromi dan berpikir tentangnya: menyadari bahwa saya benar-benar manusia.Oka Rusmini, Prolog, 2006.",
+      "details": {
+        "no_gm": "624202033",
+        "isbn": "978-602-06-8011-8",
+        "price": "Rp 99,000",
+        "total_pages": "250 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "sastra indonesia",
+          "url": "https://gpu.id/tag/222/sastra-indonesia"
+        },
+        {
+          "name": "sastra",
+          "url": "https://gpu.id/tag/164/sastra"
+        },
+        {
+          "name": "buku puisi",
+          "url": "https://gpu.id/tag/159/buku-puisi"
+        },
+        {
+          "name": "Kumpulan Puisi",
+          "url": "https://gpu.id/tag/98/kumpulan-puisi"
+        },
+        {
+          "name": "Poetry",
+          "url": "https://gpu.id/tag/33/poetry"
+        },
+        {
+          "name": "Puisi",
+          "url": "https://gpu.id/tag/32/puisi"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/patiwangi-1"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782323679bd51cee772b726",
+      "title": "Belajar Kaya dari Teman SMA",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94728/Hum_-Belajar_Kaya_dari_Teman_SMA.jpeg",
+      "author": {
+        "name": "Song Heekoo",
+        "url": "https://gpu.id/author/40780/song-heekoo"
+      },
+      "category": {
+        "name": "Self-Improvement",
+        "url": "https://gpu.id/categories/nonfiction/self-improvement"
+      },
+      "summary": "\"Lanskap orang-orang kaya di Korea Selatan sedang berubah. Orang-orang kaya baru yang bukan karena mendapat warisanlah yang memimpin. Dunia orang-orang kaya yang mandiri akhirnya terbuka di Korea Selatan\"—Indeks Miliarder BloombergBagaimana jika Anda tidak memiliki ayah yang kaya? Saya memiliki teman yang kaya. Seorang rekan sekaligus guru pribadi saya, yang merintis jalan kekayaannya sendiri. Seorang teman SMA kaya yang mengubah hidup saya!Young Chul tanpa sengaja bertemu kembali dengan temannya semasa SMA, Kwang Soo, ketika mengunjungi Lotte World bersama putranya. Kwang Soo, yang tumbuh besar di rumah semi-bawah tanah dan membantu orangtuanya mengelola toko barang antik, menyapa Young Chul yang bertanya-tanya.Kenapa tiket yang dimiliki Kwang Soo berbeda? Tiket premium mahal ajaib yang membuat kita bisa naik semua wahana tanpa harus mengantre. Dia juga berjalan kaki ke Lotte World. Di manakah letak rumahnya? Ketika aku melihat sekeliling, satu-satunya hunian yang kulihat hanyalah apartemen Signiel yang mewah.Kwang Soo kini menjelma menjadi kaya raya dan menjalankan bisnis yang sukses. Padahal, semasa SMA dia tampak tidak lebih berprestasi dibandingkan Young Chul. Apa yang terjadi padanya? Young Chul juga sangat penasaran apa yang dilakukan Kwang Soo dalam dua puluh tahun terakhir hingga dia bisa menjadi sekaya sekarang.",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 129,000",
+        "total_pages": "315 pages",
+        "size": "13,5 x 20 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Self Improvement",
+          "url": "https://gpu.id/tag/14/self-improvement"
+        },
+        {
+          "name": "Self-Improvement",
+          "url": "https://gpu.id/tag/313/self-improvement"
+        },
+        {
+          "name": "Self Improve",
+          "url": "https://gpu.id/tag/1198/self-improve"
+        },
+        {
+          "name": "pengembangan diri",
+          "url": "https://gpu.id/tag/189/pengembangan-diri"
+        },
+        {
+          "name": "buku pengembangan diri",
+          "url": "https://gpu.id/tag/889/buku-pengembangan-diri"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Belajar+Kaya+dari+Teman+SMA"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "678231da79bd51cee772b6f5",
+      "title": "Atlas Dunia Dinosaurus",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94679/624120026.jpg",
+      "author": {
+        "name": "Quarto Publishing",
+        "url": "https://gpu.id/author/40809/quarto-publishing"
+      },
+      "category": {
+        "name": "Picture Books",
+        "url": "https://gpu.id/categories/children/picture-books"
+      },
+      "summary": "Ayo berkenalan dengan para dinosaurus luar biasa yang hidup dalam buku aktivitas atlas ini. Temui setiap dinosaurus yang tinggal di habitatnya, hiasi peta dengan stiker warna-warni, dan jawab kuisnya!",
+      "details": {
+        "no_gm": "624120026",
+        "isbn": "978-602-06-7942-6",
+        "price": "Rp 179,000",
+        "total_pages": "32 pages",
+        "size": "24 x 27,5 cm",
+        "published_date": "27 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "Anak-anak",
+          "url": "https://gpu.id/tag/1327/anak-anak"
+        },
+        {
+          "name": "Anak",
+          "url": "https://gpu.id/tag/1091/anak"
+        },
+        {
+          "name": "buku anak gramedia",
+          "url": "https://gpu.id/tag/85/buku-anak-gramedia"
+        },
+        {
+          "name": "Buku anak",
+          "url": "https://gpu.id/tag/7/buku-anak"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Buy on Gramedia.com",
+          "url": "https://www.gramedia.com/products/atlas-dunia-dinosaurus"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782322f79bd51cee772b722",
+      "title": "Segaris Masa Transformasi Bisnis Petrokimia Gresik",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94724/Hum_-_Segaris_Masa_Transformasi_Bisnis.jpg",
+      "author": {
+        "name": "Grastayana Suki",
+        "url": "https://gpu.id/author/40779/grastayana-suki"
+      },
+      "category": {
+        "name": "Business Management & Leadership",
+        "url": "https://gpu.id/categories/nonfiction/business-management-leadership"
+      },
+      "summary": "“Di tengah-tengah tantangan go global, kami berkomitmen untuk menjadi perusahaan yang inovatif, adaptif, dan responsif terhadap dinamika pasar global yang semakin berubah. Melalui transformasi bisnis yang sedang berjalan, kami terus memperkuat praktik-praktik berkelanjutan dalam setiap aspek operasional.”—T. Nugroho Purwanto, Komisaris Utama PTPetrokimia Gresik“Ide dan kreativitas tidak memiliki struktur hierarki atau jabatan. Siapa pun harus bersama-sama berpikir inovatif sehingga tidak terpaku hanya pada bidangnya.”—Dwi Satriyo Annurogo, Direktur Utama Petrokimia Gresik",
+      "details": {
+        "no_gm": "0",
+        "isbn": "0",
+        "price": "Rp 369,000",
+        "total_pages": "430 pages",
+        "size": "15 x 23 cm",
+        "published_date": "25 November 2024",
+        "format": "Soft Cover"
+      },
+      "tags": [
+        {
+          "name": "buku bisnis",
+          "url": "https://gpu.id/tag/243/buku-bisnis"
+        },
+        {
+          "name": "Bisnis",
+          "url": "https://gpu.id/tag/1079/bisnis"
+        },
+        {
+          "name": "Business",
+          "url": "https://gpu.id/tag/311/business"
+        },
+        {
+          "name": "Business Management",
+          "url": "https://gpu.id/tag/369/business-management"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Segaris+Masa+Transformasi+Bisnis+Petrokimia+Gresik"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782306579bd51cee772b62e",
+      "title": "Buku Berjendela: Yuk, Tebak! Emosi",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94478/Anak_-_Yuk,_Tebak!_Emosi.jpg",
+      "author": {
+        "name": "Clever Media Group",
+        "url": "https://gpu.id/author/40713/clever-media-group"
+      },
+      "category": {
+        "name": "Activity Books",
+        "url": "https://gpu.id/categories/children/activity-books"
+      },
+      "summary": "Di buku ini, anak-anak bisa belajar mendefinisikan emosi apa yang dirasakan: sedih, takut, senang, marah... Anak-anak juga bisa tahu penyebabnya dan bagaimana mengatasi perasaan itu dengan bantuan buku interaktif ini!",
+      "details": {
+        "no_gm": "624116004",
+        "isbn": "978-602-06-7697-5",
+        "price": "Rp 179,000",
+        "total_pages": "10 pages",
+        "size": "21 x 21 cm",
+        "published_date": "20 November 2024",
+        "format": "Hard Cover"
+      },
+      "tags": [
+        {
+          "name": "Anak-anak",
+          "url": "https://gpu.id/tag/1327/anak-anak"
+        },
+        {
+          "name": "Anak",
+          "url": "https://gpu.id/tag/1091/anak"
+        },
+        {
+          "name": "buku anak gramedia",
+          "url": "https://gpu.id/tag/85/buku-anak-gramedia"
+        },
+        {
+          "name": "Buku anak",
+          "url": "https://gpu.id/tag/7/buku-anak"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Buku+Berjendela%3A+Yuk%2C+Tebak%21+Emosi"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782306379bd51cee772b62d",
+      "title": "Buku Berjendela: Yuk, Tebak! Dinosaurus",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94477/Anak_-_Yuk,_Tebak!_Dinosaurus.jpg",
+      "author": {
+        "name": "Clever Media Group",
+        "url": "https://gpu.id/author/40713/clever-media-group"
+      },
+      "category": {
+        "name": "Activity Books",
+        "url": "https://gpu.id/categories/children/activity-books"
+      },
+      "summary": "AYO BERTUALANG KE MASA LALU UNTUK BERTEMU DINOSAURUS! Dari Tyrannosaurus rex sampai Elasmosaurus, ada berbagai jenis dinosaurus dan reptil purba yang bisa kautemui di buku berjendela ini!",
+      "details": {
+        "no_gm": "624116001",
+        "isbn": "978-602-06-7700-2",
+        "price": "Rp 179,000",
+        "total_pages": "10 pages",
+        "size": "21 x 21 cm",
+        "published_date": "20 November 2024",
+        "format": "Hard Cover"
+      },
+      "tags": [
+        {
+          "name": "Anak-anak",
+          "url": "https://gpu.id/tag/1327/anak-anak"
+        },
+        {
+          "name": "Anak",
+          "url": "https://gpu.id/tag/1091/anak"
+        },
+        {
+          "name": "Activities",
+          "url": "https://gpu.id/tag/731/activities"
+        },
+        {
+          "name": "Activity Book",
+          "url": "https://gpu.id/tag/365/activity-book"
+        },
+        {
+          "name": "Activity Books",
+          "url": "https://gpu.id/tag/364/activity-books"
+        },
+        {
+          "name": "buku anak gramedia",
+          "url": "https://gpu.id/tag/85/buku-anak-gramedia"
+        },
+        {
+          "name": "Buku anak",
+          "url": "https://gpu.id/tag/7/buku-anak"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Buku+Berjendela%3A+Yuk%2C+Tebak%21+Dinosaurus"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    },
+    {
+      "_id": "6782306779bd51cee772b62f",
+      "title": "Buku Berjendela: Yuk, Tebak! Makhluk Laut",
+      "cover_image": "https://gpu.id/data-gpu/images/img-book/94479/Anak_-_Yuk,_Tebak!_Makhluk_Laut.jpg",
+      "author": {
+        "name": "Clever Media Group",
+        "url": "https://gpu.id/author/40713/clever-media-group"
+      },
+      "category": {
+        "name": "Activity Books",
+        "url": "https://gpu.id/categories/children/activity-books"
+      },
+      "summary": "Di buku ini, anak-anak bisa belajar mendefinisikan emosi apa yang dirasakan: Ayo menyelam dan bertemu hewan-hewan lautan! Dari ikan badut sampai paus pembunuh, ada berbagai hewan yang hidup di lautan yang bisa kautemui di buku berjendela ini.",
+      "details": {
+        "no_gm": "624116005",
+        "isbn": "978-602-06-7696-8",
+        "price": "Rp 179,000",
+        "total_pages": "10 pages",
+        "size": "21 x 21 cm",
+        "published_date": "20 November 2024",
+        "format": "Hard Cover"
+      },
+      "tags": [
+        {
+          "name": "Anak-anak",
+          "url": "https://gpu.id/tag/1327/anak-anak"
+        },
+        {
+          "name": "Anak",
+          "url": "https://gpu.id/tag/1091/anak"
+        },
+        {
+          "name": "Activity Book",
+          "url": "https://gpu.id/tag/365/activity-book"
+        },
+        {
+          "name": "Activity Books",
+          "url": "https://gpu.id/tag/364/activity-books"
+        },
+        {
+          "name": "buku anak gramedia",
+          "url": "https://gpu.id/tag/85/buku-anak-gramedia"
+        },
+        {
+          "name": "Buku anak",
+          "url": "https://gpu.id/tag/7/buku-anak"
+        }
+      ],
+      "buy_links": [
+        {
+          "store": "Search on Gramedia.com",
+          "url": "https://www.gramedia.com/search?q=Buku+Berjendela%3A+Yuk%2C+Tebak%21+Makhluk+Laut"
+        }
+      ],
+      "publisher": "Gramedia Pustaka Utama"
+    }
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 137,
+    "totalItems": 2732,
+    "itemsPerPage": 20,
+    "hasNextPage": true,
+    "hasPrevPage": false
+  }
+}
+
+GET BY ID :
+bukuacak-9bdcb4ef2605.herokuapp.com/api/v1/book/{_id}
+{
+  "_id": "6780fe7e1e0f1c11c617c2a2",
+  "title": "Skandal Perjamuan Natal (The Adventure of the Christmas Pudding)",
+  "cover_image": "https://gpu.id/data-gpu/images/uploads/book/3c8e76483da3e7baa9a4b5e674068121.jpg",
+  "author": {
+    "name": "Agatha Christie",
+    "url": "https://gpu.id/author/34543/agatha-christie"
+  },
+  "category": {
+    "name": null,
+    "url": null
+  },
+  "summary": "Jangan makan puding itu.Puding Natal khusus itu terhidang dengan segala kemegahannya di piring hidangan dari perak. Puding itu berbentuk bola kaki yang besar. Setangkai daun holly tertancap di atasnya, seperti bendera kemenangan, dan nyala api biru dan merah cemerlang semarak di sekelilingnya. Terdengar pekik sorak kagum dari semua yang hadir.Hercule Poirot memandang kue di piringnya dengan ekspresi agak aneh.Itu karena dia telah menemukan secarik surat pendek di tempat tidurnya, yang berbunyi:JANGAN MAKAN PUDING PLUM SEDIKIT PUN.DARI SESEORANG YANG BERNIAT BAIK TERHADAP ANDA.",
+  "details": {
+    "no_gm": "618185048",
+    "isbn": "978 -979-22-2970-7",
+    "price": "Rp 60,000",
+    "total_pages": "352 pages",
+    "size": "11x18cm",
+    "published_date": "26 November 2018",
+    "format": "Soft Cover"
+  },
+  "tags": [ ],
+  "buy_links": [
+    {
+      "store": "Search on Gramedia.com",
+      "url": "https://www.gramedia.com/search?q=Skandal+Perjamuan+Natal+The+Adventure+of+the+Christmas+Pudding"
+    }
+  ],
+  "publisher": "Gramedia Pustaka Utama"
+}
+
+GET BY SEARCH :
+https://bukuacak-9bdcb4ef2605.herokuapp.com/api/v1/book?keyword=Harry

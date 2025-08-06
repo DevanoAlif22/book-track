@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.06) 0px 1px 3px;
+}
