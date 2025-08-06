@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BookOpen, Globe, Users, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AboutSection: React.FC = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      easing: "ease-out",
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   const features = [
     {
       icon: BookOpen,
@@ -39,12 +50,20 @@ const AboutSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* Bagian Judul */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800">
+          <div
+            className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800"
+            data-aos="fade-down"
+            data-aos-delay="0"
+          >
             <Sparkles className="w-4 h-4" />
             Tentang BookVerse
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6 leading-tight">
+          <h2
+            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6 leading-tight"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Alam Semesta Literasi
             <br />
             <span className="text-3xl md:text-4xl font-semibold">
@@ -52,7 +71,11 @@ const AboutSection: React.FC = () => {
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p
+            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Selamat datang di{" "}
             <span className="font-bold text-transparent bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text">
               BookVerse
@@ -70,9 +93,8 @@ const AboutSection: React.FC = () => {
             <div
               key={index}
               className="group relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 border border-white/50 dark:border-gray-700/50"
-              style={{
-                animationDelay: `${index * 0.2}s`,
-              }}
+              data-aos="fade-up"
+              data-aos-delay={300 + index * 100}
             >
               {/* Efek Border Gradient */}
               <div
@@ -112,7 +134,7 @@ const AboutSection: React.FC = () => {
 
         {/* Tombol Aksi */}
         <Link to="/search">
-          <div className="text-center">
+          <div className="text-center" data-aos="zoom-in" data-aos-delay="700">
             <div className="inline-flex items-center gap-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25 cursor-pointer">
               <BookOpen className="w-6 h-6" />
               Mulai Perjalanan Membaca Anda
