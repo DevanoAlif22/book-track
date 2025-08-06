@@ -17,7 +17,7 @@ interface ApiResponse {
 }
 
 const BookSkeleton: React.FC = () => (
-  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden animate-pulse border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+  <div className="bg-theme-card rounded-xl shadow-lg overflow-hidden animate-pulse border border-theme transition-colors duration-300">
     <div className="h-72 bg-gray-300 dark:bg-gray-600"></div>
     <div className="p-6">
       <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded mb-3"></div>
@@ -113,7 +113,7 @@ const IndonesianBookList: React.FC = () => {
           className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
             i === currentPage
               ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
-              : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
+              : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
           }`}
         >
           {i}
@@ -126,7 +126,7 @@ const IndonesianBookList: React.FC = () => {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={!pagination.hasPrevPage}
-          className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:shadow-md"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme hover:shadow-md"
         >
           <ChevronLeft className="h-4 w-4" />
           <span>Sebelumnya</span>
@@ -137,7 +137,7 @@ const IndonesianBookList: React.FC = () => {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={!pagination.hasNextPage}
-          className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 hover:shadow-md"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme hover:shadow-md"
         >
           <span>Selanjutnya</span>
           <ChevronRight className="h-4 w-4" />
@@ -147,14 +147,14 @@ const IndonesianBookList: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+    <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">
+          <h1 className="text-4xl md:text-5xl font-bold text-theme-primary mb-4 transition-colors duration-300">
             Perpustakaan Digital Indonesia
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
+          <p className="text-lg text-theme-secondary max-w-2xl mx-auto transition-colors duration-300">
             Temukan koleksi buku terbaru dari penerbit terpercaya di Indonesia
           </p>
         </div>
@@ -163,7 +163,7 @@ const IndonesianBookList: React.FC = () => {
         <div className="mb-8">
           <div className="max-w-2xl mx-auto">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-gray-500" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-theme-muted" />
               <input
                 type="text"
                 placeholder="Search book titles, authors, or categories..."
@@ -172,7 +172,7 @@ const IndonesianBookList: React.FC = () => {
                 onKeyPress={(e) => {
                   if (e.key === "Enter") handleSearch(e);
                 }}
-                className="w-full pl-12 pr-32 py-4 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent text-lg transition-all duration-300 shadow-sm hover:shadow-md"
+                className="w-full pl-12 pr-32 py-4 border border-theme bg-theme-card text-theme-primary rounded-xl focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent text-lg transition-all duration-300 shadow-sm hover:shadow-md"
               />
               <button
                 onClick={handleSearch}
@@ -187,8 +187,8 @@ const IndonesianBookList: React.FC = () => {
         {/* Stats */}
         {pagination && !loading && (
           <div className="text-center mb-8">
-            <div className="inline-block bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 transition-colors duration-300">
-              <p className="text-gray-600 dark:text-gray-300">
+            <div className="inline-block bg-theme-card px-6 py-3 rounded-full shadow-sm border border-theme transition-colors duration-300">
+              <p className="text-theme-secondary">
                 Menampilkan{" "}
                 <span className="font-semibold text-blue-600 dark:text-blue-400">
                   {books.length}
@@ -232,12 +232,12 @@ const IndonesianBookList: React.FC = () => {
           </div>
         ) : books.length === 0 ? (
           <div className="text-center py-20">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-12 shadow-lg border border-gray-100 dark:border-gray-700 max-w-md mx-auto transition-colors duration-300">
-              <BookOpen className="h-20 w-20 text-gray-400 dark:text-gray-500 mx-auto mb-6" />
-              <h3 className="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-3">
+            <div className="bg-theme-card rounded-2xl p-12 shadow-lg border border-theme max-w-md mx-auto transition-colors duration-300">
+              <BookOpen className="h-20 w-20 text-theme-muted mx-auto mb-6" />
+              <h3 className="text-2xl font-semibold text-theme-secondary mb-3">
                 Tidak ada buku ditemukan
               </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-8">
+              <p className="text-theme-muted mb-8">
                 {searchTerm
                   ? `Tidak ada hasil untuk "${searchTerm}". Coba kata kunci lain.`
                   : "Coba sesuaikan kriteria pencarian Anda"}

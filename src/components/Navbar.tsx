@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { Menu, X, Book, Home, Heart, Search } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
-  activeMenu?: "home" | "favorite" | "search";
   onMenuClick?: (menu: "home" | "favorite" | "search") => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({
-  activeMenu = "home",
-  onMenuClick,
-}) => {
+const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -28,14 +26,22 @@ const Navbar: React.FC<NavbarProps> = ({
     { id: "favorite", label: "Favorit", icon: Heart, route: "/favorites" },
   ];
 
+  // Function to determine if menu item is active based on current route
+  const isMenuActive = (route: string) => {
+    return (
+      location.pathname === route ||
+      (route === "/home" && location.pathname === "/")
+    );
+  };
+
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors duration-300">
+    <nav className="bg-theme-primary shadow-lg sticky top-0 z-50 border-b border-theme">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2 flex-shrink-0">
             <Book className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
+            <span className="text-xl font-bold text-theme-primary">
               BookTrack
             </span>
           </div>
@@ -45,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="flex items-baseline space-x-4">
               {menuItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = activeMenu === item.id;
+                const isActive = isMenuActive(item.route);
 
                 return (
                   <Link
@@ -57,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                       isActive
                         ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                        : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+                        : "text-theme-secondary hover:bg-theme-secondary hover:text-theme-primary"
                     }`}
                   >
                     <Icon className="h-4 w-4" />
@@ -66,13 +72,15 @@ const Navbar: React.FC<NavbarProps> = ({
                 );
               })}
             </div>
+            {/* Theme Toggle */}
+            <ThemeToggle variant="dropdown" size="md" />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800 dark:focus:ring-blue-400"
+              className="inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset text-theme-secondary hover:text-theme-primary hover:bg-theme-secondary focus:ring-blue-500"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -92,10 +100,10 @@ const Navbar: React.FC<NavbarProps> = ({
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t transition-colors duration-300 bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-theme bg-theme-secondary">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeMenu === item.id;
+            const isActive = isMenuActive(item.route);
 
             return (
               <Link
@@ -107,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center space-x-3 w-full px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   isActive
                     ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
+                    : "text-theme-secondary hover:bg-theme-card hover:text-theme-primary"
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -115,23 +123,19 @@ const Navbar: React.FC<NavbarProps> = ({
               </Link>
             );
           })}
+          {/* Theme Toggle for Mobile */}
+          <div className="px-3 py-2 border-t border-theme">
+            <div className="flex items-center justify-between">
+              <span className="text-base font-medium text-theme-secondary">
+                Theme
+              </span>
+              <ThemeToggle variant="switch" size="sm" />
+            </div>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
 
-// Demo component untuk menunjukkan penggunaan
-const App: React.FC = () => {
-  const [activeMenu, setActiveMenu] = useState<"home" | "favorite" | "search">(
-    "home"
-  );
-
-  return (
-    <div className="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-      <Navbar activeMenu={activeMenu} onMenuClick={setActiveMenu} />
-    </div>
-  );
-};
-
-export default App;
+export default Navbar;

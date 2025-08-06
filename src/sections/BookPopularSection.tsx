@@ -15,7 +15,7 @@ import { BookApiService, handleApiError } from "../services/bookApi";
 
 const BookSkeleton: React.FC<{ index: number }> = ({ index }) => (
   <div
-    className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden animate-pulse border border-gray-100 dark:border-gray-700 transition-colors duration-300"
+    className="bg-theme-card rounded-xl shadow-lg overflow-hidden animate-pulse border border-theme transition-colors duration-300"
     data-aos="fade-up"
     data-aos-delay={index * 100}
   >
@@ -49,7 +49,7 @@ const StatsCard: React.FC<{
   index: number;
 }> = ({ icon, title, value, subtitle, color, index }) => (
   <div
-    className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+    className="bg-theme-card rounded-xl shadow-sm border border-theme p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
     data-aos="flip-up"
     data-aos-delay={index * 200}
     data-aos-duration="600"
@@ -64,21 +64,21 @@ const StatsCard: React.FC<{
       </div>
       <div>
         <h3
-          className="font-semibold text-gray-800 dark:text-white"
+          className="font-semibold text-theme-primary"
           data-aos="fade-right"
           data-aos-delay={index * 200 + 400}
         >
           {title}
         </h3>
         <p
-          className="text-2xl font-bold text-gray-900 dark:text-white"
+          className="text-2xl font-bold text-theme-primary"
           data-aos="fade-up"
           data-aos-delay={index * 200 + 500}
         >
           {value}
         </p>
         <p
-          className="text-sm text-gray-500 dark:text-gray-400"
+          className="text-sm text-theme-muted"
           data-aos="fade-left"
           data-aos-delay={index * 200 + 600}
         >
@@ -170,19 +170,19 @@ const BookPopularSection: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+    <div className="min-h-screen bg-theme-secondary py-8 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h1
-            className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300"
+            className="text-4xl md:text-5xl font-bold text-theme-primary mb-4 transition-colors duration-300"
             data-aos="fade-down"
             data-aos-duration="800"
           >
             Buku Populer
           </h1>
           <p
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300"
+            className="text-lg text-theme-secondary max-w-2xl mx-auto transition-colors duration-300"
             data-aos="fade-up"
             data-aos-delay="200"
             data-aos-duration="800"
@@ -192,7 +192,7 @@ const BookPopularSection: React.FC = () => {
           </p>
           {!loading && !error && (
             <p
-              className="text-sm text-gray-500 dark:text-gray-400 mt-2"
+              className="text-sm text-theme-muted mt-2"
               data-aos="fade-in"
               data-aos-delay="400"
             >
@@ -270,7 +270,7 @@ const BookPopularSection: React.FC = () => {
         ) : books.length === 0 && !error ? (
           <div className="text-center py-20">
             <div
-              className="bg-white dark:bg-gray-800 rounded-2xl p-12 shadow-lg border border-gray-100 dark:border-gray-700 max-w-md mx-auto transition-colors duration-300"
+              className="bg-theme-card rounded-2xl p-12 shadow-lg border border-theme max-w-md mx-auto transition-colors duration-300"
               data-aos="zoom-in"
               data-aos-duration="800"
             >
@@ -291,14 +291,14 @@ const BookPopularSection: React.FC = () => {
                 </div>
               </div>
               <h3
-                className="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-3"
+                className="text-2xl font-semibold text-theme-secondary mb-3"
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
                 Belum Ada Buku Populer
               </h3>
               <p
-                className="text-gray-500 dark:text-gray-400 mb-8"
+                className="text-theme-muted mb-8"
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
@@ -366,7 +366,7 @@ const BookPopularSection: React.FC = () => {
                 {displayCount > 8 && (
                   <button
                     onClick={handleShowLess}
-                    className="flex items-center space-x-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-all duration-200 shadow-sm hover:shadow-md font-medium transform hover:scale-105"
+                    className="flex items-center space-x-2 bg-theme-card text-theme-primary px-6 py-3 rounded-lg hover:bg-theme-secondary border border-theme transition-all duration-200 shadow-sm hover:shadow-md font-medium transform hover:scale-105"
                     data-aos="slide-right"
                     data-aos-delay="300"
                   >
@@ -376,7 +376,7 @@ const BookPopularSection: React.FC = () => {
 
                 {displayCount >= 32 && (
                   <p
-                    className="text-gray-500 dark:text-gray-400 text-sm italic"
+                    className="text-theme-muted text-sm italic"
                     data-aos="fade-in"
                     data-aos-delay="400"
                   >

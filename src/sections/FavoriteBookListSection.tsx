@@ -65,24 +65,30 @@ const FavoriteBookList: React.FC = () => {
 
   if (favorites.length === 0) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-2">
-          Belum ada buku favorit
-        </h3>
-        <p className="text-gray-500 dark:text-gray-400">
-          Tambahkan buku ke favorit dari halaman utama
-        </p>
+      <div className="min-h-screen bg-theme-primary py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-20">
+            <div className="bg-theme-card rounded-2xl p-12 shadow-lg border border-theme max-w-md mx-auto">
+              <BookOpen className="h-16 w-16 text-theme-muted mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-theme-secondary mb-2">
+                Belum ada buku favorit
+              </h3>
+              <p className="text-theme-muted">
+                Tambahkan buku ke favorit dari halaman utama
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+    <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Stats Toggle */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-10">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+          <h2 className="text-2xl font-bold text-theme-primary">
             Daftar Buku Favorit ({favorites.length})
           </h2>
 
@@ -97,8 +103,8 @@ const FavoriteBookList: React.FC = () => {
 
         {/* Category Statistics */}
         {showStats && (
-          <div className="mb-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center space-x-2">
+          <div className="mb-6 bg-theme-card rounded-lg shadow-md p-6 border border-theme">
+            <h3 className="text-lg font-semibold text-theme-primary mb-4 flex items-center space-x-2">
               <Tag className="h-5 w-5 text-blue-500" />
               <span>Statistik Berdasarkan Kategori</span>
             </h3>
@@ -107,10 +113,10 @@ const FavoriteBookList: React.FC = () => {
               {categoryStats.map((stat) => (
                 <div
                   key={stat.name}
-                  className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600"
+                  className="bg-theme-secondary rounded-lg p-4 border border-theme"
                 >
                   <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-medium text-gray-800 dark:text-white truncate mr-2">
+                    <h4 className="text-sm font-medium text-theme-primary truncate mr-2">
                       {stat.name}
                     </h4>
                     <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full text-xs font-semibold">
@@ -128,7 +134,7 @@ const FavoriteBookList: React.FC = () => {
                     ></div>
                   </div>
 
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-theme-muted mt-1">
                     {((stat.count / favorites.length) * 100).toFixed(1)}% dari
                     total
                   </p>
@@ -137,8 +143,8 @@ const FavoriteBookList: React.FC = () => {
             </div>
 
             {/* Summary */}
-            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
-              <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
+            <div className="mt-4 pt-4 border-t border-theme">
+              <div className="flex flex-wrap gap-4 text-sm text-theme-secondary">
                 <span>
                   <strong>Total Buku:</strong> {favorites.length}
                 </span>

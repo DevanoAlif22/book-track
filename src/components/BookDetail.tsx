@@ -17,7 +17,7 @@ import { BookApiService, handleApiError } from "../services/bookApi";
 
 // Skeleton component for loading state
 const BookDetailSkeleton: React.FC = () => (
-  <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden animate-pulse">
+  <div className="max-w-5xl mx-auto bg-theme-card rounded-xl shadow-lg overflow-hidden animate-pulse border border-theme">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
       {/* Cover Skeleton */}
       <div>
@@ -181,7 +181,7 @@ const BookDetail: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+      <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <BookDetailSkeleton />
         </div>
@@ -191,14 +191,14 @@ const BookDetail: React.FC = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+      <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center">
+          <div className="bg-theme-card rounded-xl shadow-lg p-8 text-center border border-theme">
             <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+            <h2 className="text-2xl font-bold text-theme-primary mb-2">
               Gagal Memuat Detail Buku
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">{error}</p>
+            <p className="text-theme-secondary mb-6">{error}</p>
             <div className="flex justify-center space-x-4">
               <button
                 onClick={handleRetry}
@@ -209,7 +209,7 @@ const BookDetail: React.FC = () => {
               </button>
               <button
                 onClick={handleGoBack}
-                className="flex items-center space-x-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-lg font-medium transition-colors duration-200"
+                className="flex items-center space-x-2 bg-theme-secondary hover:bg-theme-card text-theme-primary px-6 py-3 rounded-lg font-medium transition-colors duration-200 border border-theme"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Kembali</span>
@@ -223,14 +223,14 @@ const BookDetail: React.FC = () => {
 
   if (!book) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+      <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center">
-            <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+          <div className="bg-theme-card rounded-xl shadow-lg p-8 text-center border border-theme">
+            <BookOpen className="h-16 w-16 text-theme-muted mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-theme-primary mb-2">
               Buku Tidak Ditemukan
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className="text-theme-secondary mb-6">
               Buku yang Anda cari tidak dapat ditemukan.
             </p>
             <button
@@ -247,26 +247,26 @@ const BookDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 transition-all duration-500">
+    <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation */}
         <div className="mb-6">
           <button
             onClick={handleGoBack}
-            className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors duration-200 group"
+            className="flex items-center space-x-2 text-theme-secondary hover:text-theme-primary transition-colors duration-200 group"
           >
             <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform duration-200" />
             <span>Kembali ke Daftar Buku</span>
           </button>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-colors duration-300">
+        <div className="bg-theme-card rounded-xl shadow-lg overflow-hidden transition-colors duration-300 border border-theme">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
             {/* Book Cover */}
             <div className="space-y-4">
               <div className="relative group">
                 <img
-                  src={book.cover_image}
+                  src={book.cover_image || "/placeholder.svg"}
                   alt={book.title}
                   className="w-full h-auto object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
                   onError={(e) => {
@@ -288,11 +288,11 @@ const BookDetail: React.FC = () => {
             {/* Book Info */}
             <div className="space-y-4">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-3 leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold text-theme-primary mb-3 leading-tight">
                   {book.title}
                 </h1>
 
-                <div className="flex items-center text-gray-600 dark:text-gray-300 space-x-2 mb-4">
+                <div className="flex items-center text-theme-secondary space-x-2 mb-4">
                   <User className="h-5 w-5 text-blue-500 flex-shrink-0" />
                   {book.author?.url ? (
                     <a
@@ -312,17 +312,17 @@ const BookDetail: React.FC = () => {
               {/* Metadata */}
               <div className="flex flex-wrap items-center gap-4 text-sm">
                 {book.details?.published_date && (
-                  <div className="flex items-center space-x-1 bg-gray-50 dark:bg-gray-700 px-3 py-2 rounded-lg">
-                    <Calendar className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-gray-700 dark:text-gray-300">
+                  <div className="flex items-center space-x-1 bg-theme-secondary px-3 py-2 rounded-lg">
+                    <Calendar className="h-4 w-4 text-theme-muted" />
+                    <span className="text-theme-primary">
                       {formatDate(book.details.published_date)}
                     </span>
                   </div>
                 )}
                 {book.details?.total_pages && (
-                  <div className="flex items-center space-x-1 bg-gray-50 dark:bg-gray-700 px-3 py-2 rounded-lg">
-                    <BookOpen className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-gray-700 dark:text-gray-300">
+                  <div className="flex items-center space-x-1 bg-theme-secondary px-3 py-2 rounded-lg">
+                    <BookOpen className="h-4 w-4 text-theme-muted" />
+                    <span className="text-theme-primary">
                       {book.details.total_pages} halaman
                     </span>
                   </div>
@@ -340,11 +340,11 @@ const BookDetail: React.FC = () => {
 
               {/* Description */}
               {book.summary && (
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
+                <div className="bg-theme-secondary p-4 rounded-lg">
+                  <h3 className="font-semibold text-theme-primary mb-2">
                     Ringkasan
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-theme-secondary leading-relaxed">
                     {book.summary}
                   </p>
                 </div>
@@ -353,14 +353,14 @@ const BookDetail: React.FC = () => {
               {/* Tags */}
               {book.tags && book.tags.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
+                  <h3 className="font-semibold text-theme-primary mb-2">
                     Tags
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {book.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-sm flex items-center space-x-1 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+                        className="bg-theme-secondary text-theme-secondary px-3 py-1 rounded-full text-sm flex items-center space-x-1 hover:bg-theme-card transition-colors duration-200"
                       >
                         <Tag className="h-3 w-3" />
                         <span>{tag.name}</span>
@@ -373,7 +373,7 @@ const BookDetail: React.FC = () => {
               {/* Buy Links */}
               {book.buy_links && book.buy_links.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
+                  <h3 className="font-semibold text-theme-primary mb-2">
                     Beli Buku Ini
                   </h3>
                   <div className="space-y-2">
@@ -394,14 +394,14 @@ const BookDetail: React.FC = () => {
               )}
 
               {/* Actions */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-theme">
                 <button
                   onClick={toggleFavorite}
                   disabled={isTogglingFavorite}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                     isFavorite
                       ? "bg-red-500 hover:bg-red-600 text-white shadow-md hover:shadow-lg"
-                      : "bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
+                      : "bg-theme-secondary hover:bg-theme-card text-theme-primary"
                   } ${
                     isTogglingFavorite ? "opacity-50 cursor-not-allowed" : ""
                   }`}
@@ -422,7 +422,7 @@ const BookDetail: React.FC = () => {
 
                 <button
                   onClick={handleShare}
-                  className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+                  className="flex items-center space-x-2 bg-theme-secondary hover:bg-theme-card text-theme-primary px-4 py-2 rounded-lg font-medium transition-colors duration-200"
                 >
                   <Share2 className="h-4 w-4" />
                   <span>Bagikan</span>

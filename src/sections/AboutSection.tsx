@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-24 overflow-hidden transition-all duration-500">
+    <section className="relative bg-theme-secondary overflow-hidden transition-all duration-500">
       {/* Elemen Latar Animasi */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -47,20 +47,20 @@ const AboutSection: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-emerald-400/10 to-teal-400/10 rounded-full blur-2xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24">
         {/* Bagian Judul */}
         <div className="text-center mb-20">
           <div
-            className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800"
+            className="inline-flex items-center gap-2 bg-theme-card backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-theme-primary mb-6 border border-theme"
             data-aos="fade-down"
             data-aos-delay="0"
           >
             <Sparkles className="w-4 h-4" />
-            Tentang BookVerse
+            Tentang Book Track
           </div>
 
           <h2
-            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6 leading-tight"
+            className="text-5xl md:text-6xl font-bold text-theme-primary text-transparent mb-6 leading-tight"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -72,13 +72,13 @@ const AboutSection: React.FC = () => {
           </h2>
 
           <p
-            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-theme-secondary max-w-3xl mx-auto leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             Selamat datang di{" "}
-            <span className="font-bold text-transparent bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text">
-              BookVerse
+            <span className="font-bold text-transparent text-theme-primary">
+              Book Track
             </span>{" "}
             — perpustakaan online terbaik Anda. Kami menyediakan koleksi buku
             pilihan dari berbagai genre, mulai dari karya klasik abadi hingga
@@ -92,7 +92,7 @@ const AboutSection: React.FC = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 border border-white/50 dark:border-gray-700/50"
+              className="group relative bg-theme-card backdrop-blur-sm rounded-3xl p-8 hover:bg-theme-card transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 border border-theme"
               data-aos="fade-up"
               data-aos-delay={300 + index * 100}
             >
@@ -100,7 +100,7 @@ const AboutSection: React.FC = () => {
               <div
                 className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${feature.gradient} p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               >
-                <div className="w-full h-full bg-white dark:bg-gray-800 rounded-3xl"></div>
+                <div className="w-full h-full bg-theme-card rounded-3xl"></div>
               </div>
 
               {/* Konten */}
@@ -112,11 +112,11 @@ const AboutSection: React.FC = () => {
                   <feature.icon className="w-8 h-8" />
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:bg-clip-text transition-all duration-300">
+                <h3 className="text-2xl font-bold text-theme-primary mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:bg-clip-text transition-all duration-300">
                   {feature.title}
                 </h3>
 
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                <p className="text-theme-secondary leading-relaxed mb-6">
                   {feature.description}
                 </p>
 

@@ -10,15 +10,15 @@ const Hero: React.FC = () => {
           alt="Latar Buku"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
       </div>
 
       {/* Konten */}
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8 py-28 lg:py-40 text-center">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white">
           Temukan Buku Favorit Anda Berikutnya
         </h1>
-        <p className="text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto mb-8">
+        <p className="text-lg lg:text-xl text-gray-200 dark:text-gray-300 max-w-2xl mx-auto mb-8">
           Jelajahi ribuan buku, mulai dari karya klasik abadi hingga buku
           terlaris terbaru. Membaca belum pernah semenyenangkan ini.
         </p>

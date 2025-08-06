@@ -1,7 +1,99 @@
 @import "tailwindcss";
 
+/* CSS Variables untuk theme */
+:root {
+  --color-bg-primary: 255 255 255;
+  --color-bg-secondary: 248 250 252;
+  --color-bg-card: 255 255 255;
+  --color-text-primary: 15 23 42;
+  --color-text-secondary: 71 85 105;
+  --color-text-muted: 148 163 184;
+  --color-border: 226 232 240;
+  --color-accent: 59 130 246;
+}
+
+.dark {
+  --color-bg-primary: 15 23 42;
+  --color-bg-secondary: 30 41 59;
+  --color-bg-card: 51 65 85;
+  --color-text-primary: 241 245 249;
+  --color-text-secondary: 203 213 225;
+  --color-text-muted: 148 163 184;
+  --color-border: 71 85 105;
+  --color-accent: 96 165 250;
+}
+
+/* Base styles - HANYA untuk theme switching, bukan semua properti */
+.bg-theme-primary,
+.bg-theme-secondary,
+.bg-theme-card,
+.text-theme-primary,
+.text-theme-secondary,
+.text-theme-muted,
+.border-theme {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+body {
+  background-color: rgb(var(--color-bg-primary));
+  color: rgb(var(--color-text-primary));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom utility classes */
+.bg-theme-primary {
+  background-color: rgb(var(--color-bg-primary));
+}
+
+.bg-theme-secondary {
+  background-color: rgb(var(--color-bg-secondary));
+}
+
+.bg-theme-card {
+  background-color: rgb(var(--color-bg-card));
+}
+
+.text-theme-primary {
+  color: rgb(var(--color-text-primary));
+}
+
+.text-theme-secondary {
+  color: rgb(var(--color-text-secondary));
+}
+
+.text-theme-muted {
+  color: rgb(var(--color-text-muted));
+}
+
+.border-theme {
+  border-color: rgb(var(--color-border));
+}
+
 .card {
-  background: #fff;
+  background: rgb(var(--color-bg-card));
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.06) 0px 1px 3px;
+  border: 1px solid rgb(var(--color-border));
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific adjustments */
+.dark .card {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px, rgba(0, 0, 0, 0.2) 0px 2px 6px;
+}
+
+/* Smooth transitions for theme switching */
+html {
+  transition: background-color 0.3s ease;
+}
+
+/* Ensure proper contrast in dark mode */
+.dark img {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.dark img:hover {
+  opacity: 1;
 }

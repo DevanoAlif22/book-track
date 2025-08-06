@@ -22,7 +22,7 @@ const ReviewSection: React.FC = () => {
       role: "Mahasiswa Sastra",
       avatar: "SW",
       rating: 5,
-      text: "BookVerse benar-benar mengubah cara saya membaca! Koleksinya sangat lengkap dan interface-nya sangat user-friendly. Sekarang saya bisa membaca di mana saja tanpa perlu membawa buku fisik.",
+      text: "Book Track benar-benar mengubah cara saya membaca! Koleksinya sangat lengkap dan interface-nya sangat user-friendly. Sekarang saya bisa membaca di mana saja tanpa perlu membawa buku fisik.",
       gradient: "from-purple-500 to-pink-500",
     },
     {
@@ -31,7 +31,7 @@ const ReviewSection: React.FC = () => {
       role: "Software Engineer",
       avatar: "AR",
       rating: 5,
-      text: "Sebagai seseorang yang sibuk dengan pekerjaan, BookVerse memberikan kemudahan luar biasa. Fitur sinkronisasi antar device-nya sempurna, saya bisa lanjut baca dari HP ketika perjalanan pulang kerja.",
+      text: "Sebagai seseorang yang sibuk dengan pekerjaan, Book Track memberikan kemudahan luar biasa. Fitur sinkronisasi antar device-nya sempurna, saya bisa lanjut baca dari HP ketika perjalanan pulang kerja.",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
@@ -40,7 +40,7 @@ const ReviewSection: React.FC = () => {
       role: "Ibu Rumah Tangga",
       avatar: "MS",
       rating: 5,
-      text: "Komunitas di BookVerse sangat aktif dan supportive! Saya mendapat banyak rekomendasi buku bagus dari sesama member. Terima kasih BookVerse telah menghidupkan kembali passion membaca saya.",
+      text: "Komunitas di Book Track sangat aktif dan supportive! Saya mendapat banyak rekomendasi buku bagus dari sesama member. Terima kasih Book Track telah menghidupkan kembali passion membaca saya.",
       gradient: "from-green-500 to-emerald-500",
     },
     {
@@ -49,7 +49,7 @@ const ReviewSection: React.FC = () => {
       role: "Guru SMA",
       avatar: "BH",
       rating: 5,
-      text: "Platform yang luar biasa untuk edukasi! Saya sering merekomendasikan BookVerse kepada siswa-siswa saya. Koleksi buku edukatif dan literaturnya sangat membantu dalam proses pembelajaran.",
+      text: "Platform yang luar biasa untuk edukasi! Saya sering merekomendasikan Book Track kepada siswa-siswa saya. Koleksi buku edukatif dan literaturnya sangat membantu dalam proses pembelajaran.",
       gradient: "from-orange-500 to-red-500",
     },
     {
@@ -58,7 +58,7 @@ const ReviewSection: React.FC = () => {
       role: "Content Creator",
       avatar: "LK",
       rating: 5,
-      text: "BookVerse menjadi sumber inspirasi utama untuk konten saya. Fitur highlight dan note-nya memudahkan saya mengumpulkan quote-quote menarik untuk dibagikan ke audience.",
+      text: "Book Track menjadi sumber inspirasi utama untuk konten saya. Fitur highlight dan note-nya memudahkan saya mengumpulkan quote-quote menarik untuk dibagikan ke audience.",
       gradient: "from-indigo-500 to-purple-500",
     },
     {
@@ -67,7 +67,7 @@ const ReviewSection: React.FC = () => {
       role: "Entrepreneur",
       avatar: "RP",
       rating: 5,
-      text: "Investasi terbaik untuk pengembangan diri! BookVerse menyediakan akses mudah ke berbagai buku bisnis dan self-development yang sangat membantu perjalanan karir saya.",
+      text: "Investasi terbaik untuk pengembangan diri! Book Track menyediakan akses mudah ke berbagai buku bisnis dan self-development yang sangat membantu perjalanan karir saya.",
       gradient: "from-teal-500 to-green-500",
     },
   ];
@@ -105,7 +105,7 @@ const ReviewSection: React.FC = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-24 overflow-hidden transition-all duration-500">
+    <section className="relative bg-theme-primary overflow-hidden transition-all duration-500 py-24">
       {/* Elemen Latar Animasi */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -117,7 +117,7 @@ const ReviewSection: React.FC = () => {
         {/* Bagian Judul */}
         <div className="text-center mb-20">
           <div
-            className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800"
+            className="inline-flex items-center gap-2 bg-theme-card backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-theme-primary mb-6 border border-theme"
             data-aos="fade-down"
             data-aos-delay="0"
           >
@@ -126,28 +126,28 @@ const ReviewSection: React.FC = () => {
           </div>
 
           <h2
-            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6 leading-tight"
+            className="text-5xl md:text-6xl font-bold text-theme-primary text-transparent mb-6 leading-tight"
             data-aos="fade-up"
             data-aos-delay="100"
           >
             Kata Mereka Tentang
             <br />
             <span className="text-3xl md:text-4xl font-semibold">
-              BookVerse
+              Book Track
             </span>
           </h2>
 
           <p
-            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-theme-secondary max-w-3xl mx-auto leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="200"
           >
             Bergabunglah dengan ribuan pembaca yang telah merasakan pengalaman
             luar biasa bersama{" "}
-            <span className="font-bold text-transparent bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text">
-              BookVerse
+            <span className="font-bold text-transparent text-theme-primary bg-clip-text">
+              Book Track
             </span>
-            . Simak cerita mereka dan temukan mengapa BookVerse menjadi pilihan
+            . Simak cerita mereka dan temukan mengapa Book Track menjadi pilihan
             utama para pecinta buku.
           </p>
         </div>
@@ -157,7 +157,7 @@ const ReviewSection: React.FC = () => {
           {/* Tombol Navigasi Kiri */}
           <button
             onClick={prevReview}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl border border-white/50 dark:border-gray-700/50 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-theme-card backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl border border-theme flex items-center justify-center text-theme-secondary hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110"
             data-aos="fade-right"
             data-aos-delay="400"
           >
@@ -167,7 +167,7 @@ const ReviewSection: React.FC = () => {
           {/* Tombol Navigasi Kanan */}
           <button
             onClick={nextReview}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl border border-white/50 dark:border-gray-700/50 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-theme-card backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl border border-theme flex items-center justify-center text-theme-secondary hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110"
             data-aos="fade-left"
             data-aos-delay="400"
           >
@@ -179,7 +179,7 @@ const ReviewSection: React.FC = () => {
             {getVisibleReviews().map((review, index) => (
               <div
                 key={`${review.id}-${currentIndex}`}
-                className="group relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 border border-white/50 dark:border-gray-700/50"
+                className="group relative bg-theme-card backdrop-blur-sm rounded-3xl p-8 hover:bg-theme-card transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 border border-theme"
                 data-aos="fade-up"
                 data-aos-delay={500 + index * 100}
               >
@@ -187,7 +187,7 @@ const ReviewSection: React.FC = () => {
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${review.gradient} p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                 >
-                  <div className="w-full h-full bg-white dark:bg-gray-800 rounded-3xl"></div>
+                  <div className="w-full h-full bg-theme-card rounded-3xl"></div>
                 </div>
 
                 {/* Konten */}
@@ -203,7 +203,7 @@ const ReviewSection: React.FC = () => {
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 italic">
+                  <p className="text-theme-secondary leading-relaxed mb-6 italic">
                     "{review.text}"
                   </p>
 
@@ -218,35 +218,14 @@ const ReviewSection: React.FC = () => {
 
                     {/* Name and Role */}
                     <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white">
+                      <h4 className="font-bold text-theme-primary">
                         {review.name}
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {review.role}
-                      </p>
+                      <p className="text-sm text-theme-muted">{review.role}</p>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Indikator Dots */}
-          <div
-            className="flex items-center justify-center gap-2 mt-12"
-            data-aos="zoom-in"
-            data-aos-delay="800"
-          >
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-gradient-to-r from-purple-600 to-blue-600 w-8"
-                    : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
-                }`}
-              />
             ))}
           </div>
         </div>
