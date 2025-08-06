@@ -5,6 +5,7 @@ import BookFavoritePage from "./pages/BookFavoritePage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SearcPage from "./pages/SearcPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           path="/favorites"
           element={<BookFavoritePage></BookFavoritePage>}
         />
+
+        {/* not found */}
+        <Route path="*" element={<NotFoundPage></NotFoundPage>} />
       </Routes>
       <Footer />
     </>
