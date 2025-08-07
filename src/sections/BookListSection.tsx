@@ -4,6 +4,63 @@ import type { Book } from "../types/BookType";
 import BookCard from "../components/BookCard";
 import BookApiService, { handleApiError } from "../services/bookApi";
 
+// Interface untuk data yang datang dari API
+interface ApiAuthor {
+  name?: string;
+  url?: string;
+}
+
+interface ApiCategory {
+  name?: string;
+  url?: string;
+}
+
+interface ApiDetails {
+  no_gm?: string;
+  isbn?: string;
+  price?: string;
+  total_pages?: string;
+  size?: string;
+  published_date?: string;
+  format?: string;
+}
+
+interface ApiTag {
+  name?: string;
+  url?: string;
+}
+
+interface ApiBuyLink {
+  store?: string;
+  url?: string;
+}
+
+// Interface untuk raw data dari API
+interface ApiBookData {
+  _id?: string;
+  title?: string;
+  author?: ApiAuthor;
+  category?: ApiCategory;
+  cover_image?: string;
+  coverImage?: string;
+  details?: ApiDetails;
+  tags?: (ApiTag | string)[];
+  summary?: string;
+  description?: string;
+  buy_links?: ApiBuyLink[];
+  publisher?: string;
+  publishedYear?: number;
+  isbn?: string;
+  pageCount?: number;
+  language?: string;
+  rating?: number;
+  reviewCount?: number;
+  price?: number | string;
+  availability?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  no_gm?: string;
+}
 interface ApiResponse {
   books: Book[];
   pagination: {
@@ -40,7 +97,10 @@ const BookSkeleton: React.FC = () => (
 );
 
 // Utility function untuk memvalidasi dan membersihkan data book
-const sanitizeBook = (book: any): Book | null => {
+// Tambahkan interface ini di bagian atas file BookListSection atau buat file terpisah untuk API types
+
+// Utility function untuk memvalidasi dan membersihkan data book - FIXED VERSION
+const sanitizeBook = (book: ApiBookData): Book | null => {
   try {
     // Pastikan semua field yang required ada
     if (!book || !book._id || !book.title) {
@@ -48,32 +108,82 @@ const sanitizeBook = (book: any): Book | null => {
       return null;
     }
 
+    // Helper function untuk normalize tag
+    const normalizeTag = (
+      tag: ApiTag | string
+    ): { name: string; url: string } => {
+      if (typeof tag === "string") {
+        return { name: tag, url: "" };
+      }
+      return {
+        name: tag.name || "",
+        url: tag.url || "",
+      };
+    };
+
     return {
       _id: book._id,
       title: book.title || "Judul tidak tersedia",
       author: {
         name: book.author?.name || "Penulis tidak diketahui",
-        ...book.author,
+        url: book.author?.url || "",
       },
       category: {
         name: book.category?.name || "Kategori tidak tersedia",
-        ...book.category,
+        url: book.category?.url || "",
       },
-      description: book.description || "Deskripsi tidak tersedia",
-      coverImage: book.coverImage || "",
-      publishedYear: book.publishedYear || new Date().getFullYear(),
-      isbn: book.isbn || "",
-      pageCount: book.pageCount || 0,
-      language: book.language || "Indonesia",
+      cover_image: book.cover_image || book.coverImage || "",
+      details: {
+        no_gm: book.details?.no_gm || book.no_gm || "",
+        isbn: book.details?.isbn || book.isbn || "",
+        price:
+          book.details?.price ||
+          (typeof book.price === "number"
+            ? book.price.toString()
+            : book.price) ||
+          "0",
+        total_pages:
+          book.details?.total_pages ||
+          (book.pageCount ? `${book.pageCount} pages` : "0 pages"),
+        size: book.details?.size || "",
+        published_date:
+          book.details?.published_date ||
+          (book.publishedYear
+            ? book.publishedYear.toString()
+            : new Date().getFullYear().toString()),
+        format: book.details?.format || "",
+      },
+      tags: Array.isArray(book.tags) ? book.tags.map(normalizeTag) : [],
+      summary: book.summary || book.description || "Deskripsi tidak tersedia",
+      buy_links: Array.isArray(book.buy_links)
+        ? book.buy_links.map((link) => ({
+            store: link.store || "Toko Online",
+            url: link.url || "",
+          }))
+        : [],
       publisher: book.publisher || "Penerbit tidak diketahui",
-      tags: Array.isArray(book.tags) ? book.tags : [],
+
+      // Optional properties yang mungkin digunakan di tempat lain
+      description:
+        book.description || book.summary || "Deskripsi tidak tersedia",
+      coverImage: book.coverImage || book.cover_image || "",
+      publishedYear: book.publishedYear || new Date().getFullYear(),
+      isbn: book.isbn || book.details?.isbn || "",
+      pageCount:
+        book.pageCount ||
+        (book.details?.total_pages
+          ? parseInt(book.details.total_pages.replace(" pages", ""))
+          : 0),
+      language: book.language || "Indonesia",
       rating: book.rating || 0,
       reviewCount: book.reviewCount || 0,
-      price: book.price || 0,
+      price:
+        typeof book.price === "number"
+          ? book.price
+          : parseInt((book.details?.price || "0").replace(/[^\d]/g, "")),
       availability: book.availability !== undefined ? book.availability : true,
       createdAt: book.createdAt || new Date().toISOString(),
       updatedAt: book.updatedAt || new Date().toISOString(),
-      ...book,
     };
   } catch (error) {
     console.error("Error sanitizing book:", error, book);
@@ -91,6 +201,7 @@ const IndonesianBookList: React.FC = () => {
   >(null);
   const [error, setError] = useState<string>("");
 
+  // Ganti fetchBooks function Anda dengan yang ini
   const fetchBooks = async (page: number = 1, keyword: string = "") => {
     setLoading(true);
     setError("");
@@ -104,8 +215,9 @@ const IndonesianBookList: React.FC = () => {
 
       console.log("Raw API response:", data); // Debug log
 
-      // Sanitize dan filter books yang valid
-      const sanitizedBooks = data.books
+      // Cast ke ApiBookData[] dan sanitize books yang valid
+      const rawBooks = data.books as ApiBookData[];
+      const sanitizedBooks = rawBooks
         .map(sanitizeBook)
         .filter((book): book is Book => book !== null);
 

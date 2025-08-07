@@ -9,21 +9,8 @@ import {
   Heart,
 } from "lucide-react";
 
-interface Book {
-  _id: string;
-  title: string;
-  author: { name: string };
-  category: { name: string };
-  cover_image: string;
-  details: {
-    price: string;
-    published_date: string;
-    total_pages: string;
-  };
-  tags: { name: string }[];
-  summary: string;
-  buy_links: { url: string; store: string }[];
-}
+// Import the corrected Book interface
+import type { Book } from "../types/BookType";
 
 interface BookCardProps {
   book: Book;
@@ -33,44 +20,76 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    setIsFavorite(favorites.some((fav: Book) => fav._id === book._id));
+    // In a real app, you might want to use a different storage solution
+    // For now, keeping localStorage but with error handling
+    try {
+      const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+      setIsFavorite(favorites.some((fav: Book) => fav._id === book._id));
+    } catch (error) {
+      console.error("Error loading favorites:", error);
+      setIsFavorite(false);
+    }
   }, [book._id]);
 
   const toggleFavorite = () => {
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    let updatedFavorites;
+    try {
+      const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+      let updatedFavorites;
 
-    if (isFavorite) {
-      updatedFavorites = favorites.filter((fav: Book) => fav._id !== book._id);
-    } else {
-      updatedFavorites = [...favorites, book];
+      if (isFavorite) {
+        updatedFavorites = favorites.filter(
+          (fav: Book) => fav._id !== book._id
+        );
+      } else {
+        updatedFavorites = [...favorites, book];
+      }
+
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      setIsFavorite(!isFavorite);
+      window.dispatchEvent(new CustomEvent("favoritesUpdated"));
+    } catch (error) {
+      console.error("Error updating favorites:", error);
     }
-
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-    setIsFavorite(!isFavorite);
-    window.dispatchEvent(new CustomEvent("favoritesUpdated"));
   };
 
   const truncateText = (text: string, maxLength: number) =>
-    text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    text && text.length > maxLength
+      ? text.substring(0, maxLength) + "..."
+      : text || "";
 
-  const formatPrice = (price: string) =>
-    price.replace("Rp ", "").replace(",", ".");
+  const formatPrice = (price: string) => {
+    if (!price) return "Harga tidak tersedia";
+    return price.replace("Rp ", "").replace(",", ".");
+  };
 
-  const getPageCount = (pages: string) => pages.replace(" pages", "");
+  const getPageCount = (pages: string) => {
+    if (!pages) return "0";
+    return pages.replace(" pages", "");
+  };
+
+  // Safe access to nested properties
+  const authorName = book.author?.name || "Penulis tidak diketahui";
+  const categoryName = book.category?.name || "Kategori tidak tersedia";
+  const coverImage = book.cover_image || book.coverImage || "/placeholder.svg";
+  const publishedDate =
+    book.details?.published_date || "Tanggal tidak tersedia";
+  const totalPages = book.details?.total_pages || "0 pages";
+  const price = book.details?.price || "Harga tidak tersedia";
+  const summary = book.summary || "Ringkasan tidak tersedia";
+  const tags = book.tags || [];
+  const buyLinks = book.buy_links || [];
 
   return (
     <div className="bg-theme-card rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-theme">
       <div className="relative overflow-hidden">
         <img
-          src={book.cover_image || "/placeholder.svg"}
+          src={coverImage}
           alt={book.title}
           className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
-          onError={(e) => {
-            if (!book.cover_image) return;
-            e.currentTarget.src = "/placeholder.svg";
-          }}
+          onError={(e) =>
+            (e.currentTarget.src =
+              "https://via.placeholder.com/300x400/f3f4f6/9ca3af?text=No+Image")
+          }
         />
 
         {/* Tombol Favorite */}
@@ -99,17 +118,17 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
           </Link>
         </div>
 
-        {book.category.name && (
+        {categoryName && categoryName !== "Kategori tidak tersedia" && (
           <div className="absolute top-4 left-4">
             <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
-              xxx {book.category.name}
+              {categoryName}
             </span>
           </div>
         )}
 
         <div className="absolute bottom-4 left-4">
           <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-            {formatPrice(book.details.price)}
+            {formatPrice(price)}
           </span>
         </div>
       </div>
@@ -121,27 +140,27 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
         <div className="flex items-center space-x-2 text-theme-secondary mb-3">
           <User className="h-4 w-4 text-blue-500" />
-          <span className="text-sm font-medium">{book.author.name}</span>
+          <span className="text-sm font-medium">{authorName}</span>
         </div>
 
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-1">
             <Calendar className="h-4 w-4 text-theme-muted" />
             <span className="text-sm text-theme-secondary">
-              {book.details.published_date}
+              {publishedDate}
             </span>
           </div>
           <div className="flex items-center space-x-1">
             <BookOpen className="h-4 w-4 text-theme-muted" />
             <span className="text-sm text-theme-secondary">
-              {getPageCount(book.details.total_pages)}
+              {getPageCount(totalPages)}
             </span>
           </div>
         </div>
 
-        {book.tags.length > 0 && (
+        {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
-            {book.tags.slice(0, 3).map((tag, index) => (
+            {tags.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
                 className="bg-theme-secondary text-theme-secondary px-2 py-1 rounded-full text-xs flex items-center space-x-1"
@@ -150,27 +169,27 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                 <span>{tag.name}</span>
               </span>
             ))}
-            {book.tags.length > 3 && (
+            {tags.length > 3 && (
               <span className="bg-theme-secondary text-theme-secondary px-2 py-1 rounded-full text-xs">
-                +{book.tags.length - 3} lainnya
+                +{tags.length - 3} lainnya
               </span>
             )}
           </div>
         )}
 
         <p className="text-theme-secondary text-sm leading-relaxed mb-4">
-          {truncateText(book.summary, 120)}
+          {truncateText(summary, 120)}
         </p>
 
-        {book.buy_links.length > 0 && (
+        {buyLinks.length > 0 && (
           <a
-            href={book.buy_links[0].url}
+            href={buyLinks[0].url}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 text-theme-secondary text-sm font-medium transition-colors duration-200"
           >
             <ExternalLink className="h-4 w-4" />
-            <span>{book.buy_links[0].store}</span>
+            <span>{buyLinks[0].store}</span>
           </a>
         )}
       </div>
