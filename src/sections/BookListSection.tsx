@@ -39,6 +39,48 @@ const BookSkeleton: React.FC = () => (
   </div>
 );
 
+// Utility function untuk memvalidasi dan membersihkan data book
+const sanitizeBook = (book: any): Book | null => {
+  try {
+    // Pastikan semua field yang required ada
+    if (!book || !book._id || !book.title) {
+      console.warn("Invalid book data:", book);
+      return null;
+    }
+
+    return {
+      _id: book._id,
+      title: book.title || "Judul tidak tersedia",
+      author: {
+        name: book.author?.name || "Penulis tidak diketahui",
+        ...book.author,
+      },
+      category: {
+        name: book.category?.name || "Kategori tidak tersedia",
+        ...book.category,
+      },
+      description: book.description || "Deskripsi tidak tersedia",
+      coverImage: book.coverImage || "",
+      publishedYear: book.publishedYear || new Date().getFullYear(),
+      isbn: book.isbn || "",
+      pageCount: book.pageCount || 0,
+      language: book.language || "Indonesia",
+      publisher: book.publisher || "Penerbit tidak diketahui",
+      tags: Array.isArray(book.tags) ? book.tags : [],
+      rating: book.rating || 0,
+      reviewCount: book.reviewCount || 0,
+      price: book.price || 0,
+      availability: book.availability !== undefined ? book.availability : true,
+      createdAt: book.createdAt || new Date().toISOString(),
+      updatedAt: book.updatedAt || new Date().toISOString(),
+      ...book,
+    };
+  } catch (error) {
+    console.error("Error sanitizing book:", error, book);
+    return null;
+  }
+};
+
 const IndonesianBookList: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -60,13 +102,23 @@ const IndonesianBookList: React.FC = () => {
         keyword: keyword.trim() || undefined,
       });
 
-      setBooks(data.books);
-      setPagination(data.pagination);
+      console.log("Raw API response:", data); // Debug log
 
-      console.log("Fetched data:", data); // Debug log
+      // Sanitize dan filter books yang valid
+      const sanitizedBooks = data.books
+        .map(sanitizeBook)
+        .filter((book): book is Book => book !== null);
+
+      console.log("Sanitized books:", sanitizedBooks); // Debug log
+
+      setBooks(sanitizedBooks);
+      setPagination(data.pagination);
     } catch (err) {
       setError(handleApiError(err));
       console.error("Error fetching books:", err);
+      // Reset books jika terjadi error
+      setBooks([]);
+      setPagination(null);
     } finally {
       setLoading(false);
     }
@@ -259,16 +311,7 @@ const IndonesianBookList: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {books.map((book) => (
-              <BookCard
-                key={book._id}
-                book={{
-                  ...book,
-                  category: {
-                    ...book.category,
-                    name: book.category.name ?? "",
-                  },
-                }}
-              />
+              <BookCard key={book._id} book={book} />
             ))}
           </div>
         )}
