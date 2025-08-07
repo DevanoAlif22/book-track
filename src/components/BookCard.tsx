@@ -82,15 +82,15 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
   return (
     <div className="bg-theme-card rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-theme">
       <div className="relative overflow-hidden">
-        <img
-          src={coverImage}
-          alt={book.title}
-          className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
-          onError={(e) =>
-            (e.currentTarget.src =
-              "https://via.placeholder.com/300x400/f3f4f6/9ca3af?text=No+Image")
-          }
-        />
+        {coverImage &&
+        !["/placeholder.svg", "", null, undefined].includes(coverImage) ? (
+          <img
+            src={coverImage}
+            alt={book.title}
+            className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+        ) : null}
 
         {/* Tombol Favorite */}
         <button
