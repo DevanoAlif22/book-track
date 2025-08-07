@@ -96,9 +96,6 @@ const BookSkeleton: React.FC = () => (
   </div>
 );
 
-// Utility function untuk memvalidasi dan membersihkan data book
-// Tambahkan interface ini di bagian atas file BookListSection atau buat file terpisah untuk API types
-
 // Utility function untuk memvalidasi dan membersihkan data book - FIXED VERSION
 const sanitizeBook = (book: ApiBookData): Book | null => {
   try {
@@ -265,28 +262,89 @@ const IndonesianBookList: React.FC = () => {
   const renderPagination = () => {
     if (!pagination || pagination.totalPages <= 1) return null;
 
-    const pages = [];
-    const startPage = Math.max(1, currentPage - 2);
-    const endPage = Math.min(pagination.totalPages, currentPage + 2);
+    const renderPageNumbers = () => {
+      const pages = [];
+      const totalPages = pagination.totalPages;
 
-    for (let i = startPage; i <= endPage; i++) {
+      // Always show first page
       pages.push(
         <button
-          key={i}
-          onClick={() => handlePageChange(i)}
+          key={1}
+          onClick={() => handlePageChange(1)}
           className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-            i === currentPage
+            1 === currentPage
               ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
               : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
           }`}
         >
-          {i}
+          1
         </button>
       );
-    }
+
+      // Show ellipsis after first page if needed
+      if (currentPage > 4) {
+        pages.push(
+          <span key="ellipsis-start" className="px-2 text-theme-secondary">
+            ...
+          </span>
+        );
+      }
+
+      // Show pages around current page
+      const startPage = Math.max(2, currentPage - 1);
+      const endPage = Math.min(totalPages - 1, currentPage + 1);
+
+      for (let i = startPage; i <= endPage; i++) {
+        if (i !== 1 && i !== totalPages) {
+          // Don't duplicate first and last page
+          pages.push(
+            <button
+              key={i}
+              onClick={() => handlePageChange(i)}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                i === currentPage
+                  ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
+                  : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
+              }`}
+            >
+              {i}
+            </button>
+          );
+        }
+      }
+
+      // Show ellipsis before last page if needed
+      if (currentPage < totalPages - 3) {
+        pages.push(
+          <span key="ellipsis-end" className="px-2 text-theme-secondary">
+            ...
+          </span>
+        );
+      }
+
+      // Always show last page (if more than 1 page total)
+      if (totalPages > 1) {
+        pages.push(
+          <button
+            key={totalPages}
+            onClick={() => handlePageChange(totalPages)}
+            className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              totalPages === currentPage
+                ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
+                : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
+            }`}
+          >
+            {totalPages}
+          </button>
+        );
+      }
+
+      return pages;
+    };
 
     return (
       <div className="flex items-center justify-center space-x-2 mt-12">
+        {/* Previous Page Button */}
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={!pagination.hasPrevPage}
@@ -296,8 +354,10 @@ const IndonesianBookList: React.FC = () => {
           <span>Sebelumnya</span>
         </button>
 
-        {pages}
+        {/* Page Numbers */}
+        {renderPageNumbers()}
 
+        {/* Next Page Button */}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={!pagination.hasNextPage}
@@ -309,7 +369,6 @@ const IndonesianBookList: React.FC = () => {
       </div>
     );
   };
-
   return (
     <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

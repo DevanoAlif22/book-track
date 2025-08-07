@@ -90,7 +90,11 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
             className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
-        ) : null}
+        ) : (
+          <div className="w-full h-72 flex items-center justify-center bg-theme-muted text-theme-secondary text-sm">
+            Gambar tidak ditemukan
+          </div>
+        )}
 
         {/* Tombol Favorite */}
         <button

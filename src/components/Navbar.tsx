@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router";
-import { Menu, X, Book, Home, Heart, Search } from "lucide-react";
+import { Menu, X, Home, Heart, Search } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2 flex-shrink-0">
-            <Book className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+            <img src="/open-book.png" style={{ width: "30px" }} alt="" />
             <span className="text-xl font-bold text-theme-primary">
               BookTrack
             </span>

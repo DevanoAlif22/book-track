@@ -248,7 +248,7 @@ const BookDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation */}
         <div className="mb-6">
           <button
@@ -331,10 +331,12 @@ const BookDetail: React.FC = () => {
 
               {/* Price */}
               {book.details?.price && (
-                <div className="flex items-center space-x-2">
-                  <p className="text-xl font-semibold text-green-600 dark:text-green-400">
-                    {book.details.price}
-                  </p>
+                <div className="flex items-center space-x-2 mt-2">
+                  <span className="inline-flex items-center bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full shadow-sm">
+                    <span className="text-lg font-bold text-green-700 dark:text-green-400 mr-2">
+                      {book.details.price}
+                    </span>
+                  </span>
                 </div>
               )}
 
