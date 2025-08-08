@@ -7,10 +7,12 @@ import Footer from "./components/Footer";
 import SearcPage from "./pages/SearcPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import ScrollToTop from "./utils/scrollTop";
 
 function App() {
   return (
     <ThemeProvider>
+      <ScrollToTop />
       <div className="min-h-screen bg-theme-primary">
         <Navbar />
         <Routes>
