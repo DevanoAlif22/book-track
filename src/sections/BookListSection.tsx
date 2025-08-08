@@ -1,77 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Search, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
-import type { Book } from "../types/BookType";
+import {
+  Search,
+  BookOpen,
+  ChevronLeft,
+  ChevronRight,
+  Filter,
+  X,
+} from "lucide-react";
 import BookCard from "../components/BookCard";
-import BookApiService, { handleApiError } from "../services/bookApi";
-
-// Interface untuk data yang datang dari API
-interface ApiAuthor {
-  name?: string;
-  url?: string;
-}
-
-interface ApiCategory {
-  name?: string;
-  url?: string;
-}
-
-interface ApiDetails {
-  no_gm?: string;
-  isbn?: string;
-  price?: string;
-  total_pages?: string;
-  size?: string;
-  published_date?: string;
-  format?: string;
-}
-
-interface ApiTag {
-  name?: string;
-  url?: string;
-}
-
-interface ApiBuyLink {
-  store?: string;
-  url?: string;
-}
-
-// Interface untuk raw data dari API
-interface ApiBookData {
-  _id?: string;
-  title?: string;
-  author?: ApiAuthor;
-  category?: ApiCategory;
-  cover_image?: string;
-  coverImage?: string;
-  details?: ApiDetails;
-  tags?: (ApiTag | string)[];
-  summary?: string;
-  description?: string;
-  buy_links?: ApiBuyLink[];
-  publisher?: string;
-  publishedYear?: number;
-  isbn?: string;
-  pageCount?: number;
-  language?: string;
-  rating?: number;
-  reviewCount?: number;
-  price?: number | string;
-  availability?: boolean;
-  createdAt?: string;
-  updatedAt?: string;
-  no_gm?: string;
-}
-interface ApiResponse {
-  books: Book[];
-  pagination: {
-    currentPage: number;
-    totalPages: number;
-    totalItems: number;
-    itemsPerPage: number;
-    hasNextPage: boolean;
-    hasPrevPage: boolean;
-  };
-}
+import { useBookSearch } from "../hooks/useBookSearch";
+import { PaginationService } from "../services/paginationService";
+import { ScrollUtils } from "../utils/scrollUtils";
+import { BOOK_CONSTANTS } from "../constants/bookConstants";
 
 const BookSkeleton: React.FC = () => (
   <div className="bg-theme-card rounded-xl shadow-lg overflow-hidden animate-pulse border border-theme transition-colors duration-300">
@@ -96,146 +36,40 @@ const BookSkeleton: React.FC = () => (
   </div>
 );
 
-// Utility function untuk memvalidasi dan membersihkan data book - FIXED VERSION
-const sanitizeBook = (book: ApiBookData): Book | null => {
-  try {
-    // Pastikan semua field yang required ada
-    if (!book || !book._id || !book.title) {
-      console.warn("Invalid book data:", book);
-      return null;
-    }
-
-    // Helper function untuk normalize tag
-    const normalizeTag = (
-      tag: ApiTag | string
-    ): { name: string; url: string } => {
-      if (typeof tag === "string") {
-        return { name: tag, url: "" };
-      }
-      return {
-        name: tag.name || "",
-        url: tag.url || "",
-      };
-    };
-
-    return {
-      _id: book._id,
-      title: book.title || "Judul tidak tersedia",
-      author: {
-        name: book.author?.name || "Penulis tidak diketahui",
-        url: book.author?.url || "",
-      },
-      category: {
-        name: book.category?.name || "Kategori tidak tersedia",
-        url: book.category?.url || "",
-      },
-      cover_image: book.cover_image || book.coverImage || "",
-      details: {
-        no_gm: book.details?.no_gm || book.no_gm || "",
-        isbn: book.details?.isbn || book.isbn || "",
-        price:
-          book.details?.price ||
-          (typeof book.price === "number"
-            ? book.price.toString()
-            : book.price) ||
-          "0",
-        total_pages:
-          book.details?.total_pages ||
-          (book.pageCount ? `${book.pageCount} pages` : "0 pages"),
-        size: book.details?.size || "",
-        published_date:
-          book.details?.published_date ||
-          (book.publishedYear
-            ? book.publishedYear.toString()
-            : new Date().getFullYear().toString()),
-        format: book.details?.format || "",
-      },
-      tags: Array.isArray(book.tags) ? book.tags.map(normalizeTag) : [],
-      summary: book.summary || book.description || "Deskripsi tidak tersedia",
-      buy_links: Array.isArray(book.buy_links)
-        ? book.buy_links.map((link) => ({
-            store: link.store || "Toko Online",
-            url: link.url || "",
-          }))
-        : [],
-      publisher: book.publisher || "Penerbit tidak diketahui",
-
-      // Optional properties yang mungkin digunakan di tempat lain
-      description:
-        book.description || book.summary || "Deskripsi tidak tersedia",
-      coverImage: book.coverImage || book.cover_image || "",
-      publishedYear: book.publishedYear || new Date().getFullYear(),
-      isbn: book.isbn || book.details?.isbn || "",
-      pageCount:
-        book.pageCount ||
-        (book.details?.total_pages
-          ? parseInt(book.details.total_pages.replace(" pages", ""))
-          : 0),
-      language: book.language || "Indonesia",
-      rating: book.rating || 0,
-      reviewCount: book.reviewCount || 0,
-      price:
-        typeof book.price === "number"
-          ? book.price
-          : parseInt((book.details?.price || "0").replace(/[^\d]/g, "")),
-      availability: book.availability !== undefined ? book.availability : true,
-      createdAt: book.createdAt || new Date().toISOString(),
-      updatedAt: book.updatedAt || new Date().toISOString(),
-    };
-  } catch (error) {
-    console.error("Error sanitizing book:", error, book);
-    return null;
-  }
-};
-
 const IndonesianBookList: React.FC = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pagination, setPagination] = useState<
-    ApiResponse["pagination"] | null
-  >(null);
-  const [error, setError] = useState<string>("");
+  const [tempSearchTerm, setTempSearchTerm] = useState<string>("");
+  const [showGenreFilter, setShowGenreFilter] = useState<boolean>(false);
 
-  // Ganti fetchBooks function Anda dengan yang ini
-  const fetchBooks = async (page: number = 1, keyword: string = "") => {
-    setLoading(true);
-    setError("");
+  const {
+    books,
+    pagination,
+    searchState,
+    loading,
+    error,
+    genres,
+    genresLoading,
+    updateSearchTerm,
+    updateGenre,
+    updatePage,
+    resetFilters,
+    performSearch,
+    hasActiveFilters,
+    filterDescription,
+  } = useBookSearch();
 
-    try {
-      const data = await BookApiService.getBooks({
-        page,
-        sort: "desc",
-        keyword: keyword.trim() || undefined,
-      });
-
-      console.log("Raw API response:", data); // Debug log
-
-      // Cast ke ApiBookData[] dan sanitize books yang valid
-      const rawBooks = data.books as ApiBookData[];
-      const sanitizedBooks = rawBooks
-        .map(sanitizeBook)
-        .filter((book): book is Book => book !== null);
-
-      console.log("Sanitized books:", sanitizedBooks); // Debug log
-
-      setBooks(sanitizedBooks);
-      setPagination(data.pagination);
-    } catch (err) {
-      setError(handleApiError(err));
-      console.error("Error fetching books:", err);
-      // Reset books jika terjadi error
-      setBooks([]);
-      setPagination(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  // Debounced search effect
   useEffect(() => {
-    fetchBooks(currentPage, searchTerm);
-  }, [currentPage, searchTerm]);
+    const debounceTimer = setTimeout(() => {
+      if (tempSearchTerm !== searchState.searchTerm) {
+        updateSearchTerm(tempSearchTerm);
+        performSearch();
+      }
+    }, 300); // 300ms delay
+
+    return () => {
+      clearTimeout(debounceTimer);
+    };
+  }, [tempSearchTerm, searchState.searchTerm, updateSearchTerm, performSearch]);
 
   const handleSearch = (
     e?:
@@ -243,110 +77,83 @@ const IndonesianBookList: React.FC = () => {
       | React.MouseEvent<HTMLButtonElement>
   ) => {
     if (e) e.preventDefault();
-    setCurrentPage(1);
-    fetchBooks(1, searchTerm);
+    // For immediate search when button is clicked
+    updateSearchTerm(tempSearchTerm);
+    performSearch();
+  };
+
+  // Handle input change for real-time search
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setTempSearchTerm(value);
+    // The useEffect will handle the debounced search
+  };
+
+  const handleGenreFilter = (genre: string) => {
+    updateGenre(genre);
+    setShowGenreFilter(false);
+  };
+
+  const clearGenreFilter = () => {
+    updateGenre("");
   };
 
   const handlePageChange = (newPage: number) => {
     if (
-      newPage !== currentPage &&
-      newPage >= 1 &&
       pagination &&
-      newPage <= pagination.totalPages
+      PaginationService.isValidPageChange(
+        newPage,
+        searchState.currentPage,
+        pagination.totalPages
+      )
     ) {
-      setCurrentPage(newPage);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      updatePage(newPage);
+      ScrollUtils.scrollToTop();
     }
+  };
+
+  const handleResetAllFilters = () => {
+    setTempSearchTerm("");
+    resetFilters();
   };
 
   const renderPagination = () => {
     if (!pagination || pagination.totalPages <= 1) return null;
 
-    const renderPageNumbers = () => {
-      const pages = [];
-      const totalPages = pagination.totalPages;
+    const pageNumbers = PaginationService.generatePageNumbers(
+      searchState.currentPage,
+      pagination.totalPages
+    );
 
-      // Always show first page
-      pages.push(
+    const renderPageButton = (page: number | string, index: number) => {
+      if (typeof page === "string") {
+        return (
+          <span key={`ellipsis-${index}`} className="px-2 text-theme-secondary">
+            {page}
+          </span>
+        );
+      }
+
+      return (
         <button
-          key={1}
-          onClick={() => handlePageChange(1)}
+          key={page}
+          onClick={() => handlePageChange(page)}
           className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-            1 === currentPage
+            page === searchState.currentPage
               ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
               : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
           }`}
         >
-          1
+          {page}
         </button>
       );
-
-      // Show ellipsis after first page if needed
-      if (currentPage > 4) {
-        pages.push(
-          <span key="ellipsis-start" className="px-2 text-theme-secondary">
-            ...
-          </span>
-        );
-      }
-
-      // Show pages around current page
-      const startPage = Math.max(2, currentPage - 1);
-      const endPage = Math.min(totalPages - 1, currentPage + 1);
-
-      for (let i = startPage; i <= endPage; i++) {
-        if (i !== 1 && i !== totalPages) {
-          // Don't duplicate first and last page
-          pages.push(
-            <button
-              key={i}
-              onClick={() => handlePageChange(i)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                i === currentPage
-                  ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
-                  : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
-              }`}
-            >
-              {i}
-            </button>
-          );
-        }
-      }
-
-      // Show ellipsis before last page if needed
-      if (currentPage < totalPages - 3) {
-        pages.push(
-          <span key="ellipsis-end" className="px-2 text-theme-secondary">
-            ...
-          </span>
-        );
-      }
-
-      // Always show last page (if more than 1 page total)
-      if (totalPages > 1) {
-        pages.push(
-          <button
-            key={totalPages}
-            onClick={() => handlePageChange(totalPages)}
-            className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-              totalPages === currentPage
-                ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg"
-                : "bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme"
-            }`}
-          >
-            {totalPages}
-          </button>
-        );
-      }
-
-      return pages;
     };
 
     return (
       <div className="flex items-center justify-center space-x-2 mt-12">
         {/* Previous Page Button */}
         <button
-          onClick={() => handlePageChange(currentPage - 1)}
+          onClick={() => handlePageChange(searchState.currentPage - 1)}
           disabled={!pagination.hasPrevPage}
           className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme hover:shadow-md"
         >
@@ -355,11 +162,11 @@ const IndonesianBookList: React.FC = () => {
         </button>
 
         {/* Page Numbers */}
-        {renderPageNumbers()}
+        {pageNumbers.map(renderPageButton)}
 
         {/* Next Page Button */}
         <button
-          onClick={() => handlePageChange(currentPage + 1)}
+          onClick={() => handlePageChange(searchState.currentPage + 1)}
           disabled={!pagination.hasNextPage}
           className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme hover:shadow-md"
         >
@@ -369,6 +176,135 @@ const IndonesianBookList: React.FC = () => {
       </div>
     );
   };
+
+  const renderGenreFilter = () => (
+    <div className="relative">
+      <button
+        onClick={() => setShowGenreFilter(!showGenreFilter)}
+        className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 border ${
+          searchState.selectedGenre
+            ? "bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500"
+            : "bg-theme-card text-theme-primary hover:bg-theme-secondary border-theme"
+        } shadow-sm hover:shadow-md`}
+      >
+        <Filter className="h-4 w-4" />
+        <span>{searchState.selectedGenre || "Filter Genre"}</span>
+      </button>
+
+      {/* Genre Dropdown */}
+      {showGenreFilter && (
+        <div className="absolute top-full left-0 mt-2 w-64 bg-theme-card border border-theme rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
+          <div className="p-2">
+            {genresLoading ? (
+              <div className="p-4 text-center text-theme-secondary">
+                Loading genres...
+              </div>
+            ) : (
+              <div className="space-y-1">
+                {genres.map((genre, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleGenreFilter(genre.genre || "")}
+                    className="w-full text-left px-3 py-2 rounded-md hover:bg-theme-secondary transition-colors duration-150 flex justify-between items-center group"
+                  >
+                    <span className="text-theme-primary group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      {genre.genre}
+                    </span>
+                    <span className="text-xs text-theme-muted bg-theme-secondary px-2 py-1 rounded-full">
+                      {genre.count}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  const renderSearchStats = () => {
+    if (!pagination || loading) return null;
+
+    return (
+      <div className="text-center mb-8">
+        <div className="inline-block bg-theme-card px-6 py-3 rounded-full shadow-sm border border-theme transition-colors duration-300">
+          <p className="text-theme-secondary">
+            Menampilkan{" "}
+            <span className="font-semibold text-blue-600 dark:text-blue-400">
+              {books.length}
+            </span>{" "}
+            dari{" "}
+            <span className="font-semibold text-blue-600 dark:text-blue-400">
+              {pagination.totalItems.toLocaleString()}
+            </span>{" "}
+            buku (Halaman {searchState.currentPage} dari {pagination.totalPages}
+            )
+            {hasActiveFilters && (
+              <span>
+                {" "}
+                untuk{" "}
+                <span className="font-semibold text-blue-600 dark:text-blue-400">
+                  {filterDescription}
+                </span>
+              </span>
+            )}
+          </p>
+        </div>
+      </div>
+    );
+  };
+
+  const renderEmptyState = () => (
+    <div className="text-center py-20">
+      <div className="bg-theme-card rounded-2xl p-12 shadow-lg border border-theme max-w-md mx-auto transition-colors duration-300">
+        <BookOpen className="h-20 w-20 text-theme-muted mx-auto mb-6" />
+        <h3 className="text-2xl font-semibold text-theme-secondary mb-3">
+          {BOOK_CONSTANTS.NO_BOOKS_TITLE}
+        </h3>
+        <p className="text-theme-muted mb-8">
+          {hasActiveFilters
+            ? BOOK_CONSTANTS.NO_BOOKS_MESSAGE
+            : "Coba sesuaikan kriteria pencarian Anda"}
+        </p>
+        {hasActiveFilters && (
+          <button
+            onClick={handleResetAllFilters}
+            className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg font-medium"
+          >
+            {BOOK_CONSTANTS.VIEW_ALL_BOOKS}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+
+  const renderBooksGrid = () => {
+    if (loading) {
+      return (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {Array.from({ length: BOOK_CONSTANTS.SKELETON_ITEMS_COUNT }).map(
+            (_, index) => (
+              <BookSkeleton key={index} />
+            )
+          )}
+        </div>
+      );
+    }
+
+    if (books.length === 0) {
+      return renderEmptyState();
+    }
+
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {books.map((book) => (
+          <BookCard key={book._id} book={book} />
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-theme-primary py-8 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -382,16 +318,17 @@ const IndonesianBookList: React.FC = () => {
           </p>
         </div>
 
-        {/* Search */}
+        {/* Search & Filter Section */}
         <div className="mb-8">
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
+          <div className="max-w-4xl mx-auto">
+            {/* Search Bar */}
+            <div className="relative mb-4">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-theme-muted" />
               <input
                 type="text"
-                placeholder="Search book titles, authors, or categories..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder={BOOK_CONSTANTS.SEARCH_PLACEHOLDER}
+                value={tempSearchTerm}
+                onChange={handleInputChange}
                 onKeyPress={(e) => {
                   if (e.key === "Enter") handleSearch(e);
                 }}
@@ -404,37 +341,28 @@ const IndonesianBookList: React.FC = () => {
                 Search
               </button>
             </div>
+
+            {/* Filter Controls */}
+            <div className="flex flex-wrap items-center gap-4">
+              {/* Genre Filter */}
+              {renderGenreFilter()}
+
+              {/* Clear Genre Filter */}
+              {searchState.selectedGenre && (
+                <button
+                  onClick={clearGenreFilter}
+                  className="flex items-center space-x-2 px-3 py-2 rounded-lg font-medium transition-all duration-200 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 border border-red-200 dark:border-red-800"
+                >
+                  <X className="h-4 w-4" />
+                  <span>Clear Filter</span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
         {/* Stats */}
-        {pagination && !loading && (
-          <div className="text-center mb-8">
-            <div className="inline-block bg-theme-card px-6 py-3 rounded-full shadow-sm border border-theme transition-colors duration-300">
-              <p className="text-theme-secondary">
-                Menampilkan{" "}
-                <span className="font-semibold text-blue-600 dark:text-blue-400">
-                  {books.length}
-                </span>{" "}
-                dari{" "}
-                <span className="font-semibold text-blue-600 dark:text-blue-400">
-                  {pagination.totalItems.toLocaleString()}
-                </span>{" "}
-                buku (Halaman {currentPage} dari {pagination.totalPages})
-                {searchTerm && (
-                  <span>
-                    {" "}
-                    untuk pencarian "
-                    <span className="font-semibold text-blue-600 dark:text-blue-400">
-                      {searchTerm}
-                    </span>
-                    "
-                  </span>
-                )}
-              </p>
-            </div>
-          </div>
-        )}
+        {renderSearchStats()}
 
         {/* Error Message */}
         {error && (
@@ -447,45 +375,7 @@ const IndonesianBookList: React.FC = () => {
         )}
 
         {/* Books Grid */}
-        {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {Array.from({ length: 8 }).map((_, index) => (
-              <BookSkeleton key={index} />
-            ))}
-          </div>
-        ) : books.length === 0 ? (
-          <div className="text-center py-20">
-            <div className="bg-theme-card rounded-2xl p-12 shadow-lg border border-theme max-w-md mx-auto transition-colors duration-300">
-              <BookOpen className="h-20 w-20 text-theme-muted mx-auto mb-6" />
-              <h3 className="text-2xl font-semibold text-theme-secondary mb-3">
-                Tidak ada buku ditemukan
-              </h3>
-              <p className="text-theme-muted mb-8">
-                {searchTerm
-                  ? `Tidak ada hasil untuk "${searchTerm}". Coba kata kunci lain.`
-                  : "Coba sesuaikan kriteria pencarian Anda"}
-              </p>
-              {searchTerm && (
-                <button
-                  onClick={() => {
-                    setSearchTerm("");
-                    setCurrentPage(1);
-                    fetchBooks(1, "");
-                  }}
-                  className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg font-medium"
-                >
-                  Lihat Semua Buku
-                </button>
-              )}
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {books.map((book) => (
-              <BookCard key={book._id} book={book} />
-            ))}
-          </div>
-        )}
+        {renderBooksGrid()}
 
         {/* Pagination */}
         {renderPagination()}

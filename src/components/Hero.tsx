@@ -10,8 +10,8 @@ const Hero: React.FC = () => {
   }, []);
 
   const stats = [
-    { icon: BookOpen, label: "Koleksi Buku", value: "50,000+" },
-    { icon: Users, label: "Pembaca Aktif", value: "100,000+" },
+    { icon: BookOpen, label: "Koleksi Buku", value: "2,000+" },
+    { icon: Users, label: "Pembaca Aktif", value: "5,000+" },
     { icon: Star, label: "Rating Rata-rata", value: "4.8/5" },
     { icon: Award, label: "Buku Terpilih", value: "1,500+" },
   ];
@@ -129,15 +129,15 @@ const Hero: React.FC = () => {
             <button
               className="group bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               onClick={() => {
-              const section = document.getElementById("popular");
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
-              }
+                const section = document.getElementById("popular");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
               }}
             >
               <span className="flex items-center space-x-2">
-              <Star className="h-5 w-5" />
-              <span>Buku Terpopuler</span>
+                <Star className="h-5 w-5" />
+                <span>Buku Terpopuler</span>
               </span>
             </button>
           </div>

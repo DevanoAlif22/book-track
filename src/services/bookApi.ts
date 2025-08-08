@@ -27,13 +27,25 @@ export interface ApiResponse {
   };
 }
 
-// Interface untuk parameter pencarian
+// Interface untuk parameter pencarian - UPDATED dengan genre
 export interface SearchParams {
   page?: number;
   keyword?: string;
   sort?: "asc" | "desc";
   category?: string;
   author?: string;
+  genre?: string; // Added genre parameter
+}
+
+export interface GenreStatistic {
+  count: number;
+  genre: string | null;
+}
+
+// Interface untuk response genre API
+export interface GenreApiResponse {
+  genre_statistics: GenreStatistic[];
+  total_genres: number;
 }
 
 // Interceptor untuk request
@@ -75,7 +87,7 @@ api.interceptors.response.use(
 // Service class untuk book API
 export class BookApiService {
   /**
-   * Mengambil daftar buku dengan parameter pencarian
+   * Mengambil daftar buku dengan parameter pencarian - UPDATED
    */
   static async getBooks(params: SearchParams = {}): Promise<ApiResponse> {
     try {
@@ -98,12 +110,54 @@ export class BookApiService {
         searchParams.append("author", params.author.trim());
       }
 
+      // ADD GENRE PARAMETER - This was missing!
+      if (params.genre?.trim()) {
+        searchParams.append("genre", params.genre.trim());
+      }
+
       const response = await api.get<ApiResponse>(
         `/book?${searchParams.toString()}`
       );
       return response.data;
     } catch (error) {
       console.error("Error in getBooks:", error);
+      throw error;
+    }
+  }
+
+  /**
+   * Mengambil statistik genre buku
+   */
+  static async getGenres(): Promise<GenreApiResponse> {
+    try {
+      const response = await api.get<GenreApiResponse>("/stats/genre");
+      return response.data;
+    } catch (error) {
+      console.error("Error in getGenres:", error);
+      throw error;
+    }
+  }
+
+  /**
+   * Mengambil statistik genre buku popular
+   */
+  static async getPopularGenres(limit?: number): Promise<GenreStatistic[]> {
+    try {
+      const genreData = await this.getGenres();
+
+      // Filter genre yang null dan urutkan berdasarkan count (descending)
+      let genres = genreData.genre_statistics
+        .filter((genre) => genre.genre !== null)
+        .sort((a, b) => b.count - a.count);
+
+      // Batasi jumlah hasil jika limit diberikan
+      if (limit && limit > 0) {
+        genres = genres.slice(0, limit);
+      }
+
+      return genres;
+    } catch (error) {
+      console.error("Error in getPopularGenres:", error);
       throw error;
     }
   }
@@ -157,6 +211,31 @@ export class BookApiService {
   }
 
   /**
+   * NEW: Mengambil buku berdasarkan genre
+   */
+  static async getBooksByGenre(
+    genre: string,
+    page: number = 1,
+    sort: "asc" | "desc" = "desc"
+  ): Promise<ApiResponse> {
+    return this.getBooks({ genre, page, sort });
+  }
+
+  /**
+   * NEW: Mencari buku dengan multiple filters
+   */
+  static async searchBooksAdvanced(filters: {
+    keyword?: string;
+    genre?: string;
+    category?: string;
+    author?: string;
+    page?: number;
+    sort?: "asc" | "desc";
+  }): Promise<ApiResponse> {
+    return this.getBooks(filters);
+  }
+
+  /**
    * Mengambil buku terbaru
    */
   static async getLatestBooks(page: number = 1): Promise<ApiResponse> {
@@ -168,9 +247,6 @@ export class BookApiService {
    */
   static async getBooksWithPagination(page: number): Promise<ApiResponse> {
     const params: SearchParams = { page };
-
-    // Catatan: API mungkin tidak mendukung itemsPerPage,
-    // tapi kita bisa menambahkannya jika diperlukan di masa depan
     return this.getBooks(params);
   }
 }
@@ -244,5 +320,28 @@ export const isBook = (data: unknown): data is Book => {
     typeof (data as { author: unknown }).author === "object" &&
     (data as { author: unknown }).author !== null &&
     typeof (data as { author: { name: unknown } }).author.name === "string"
+  );
+};
+
+// Type guard untuk Genre API Response
+export const isGenreApiResponse = (data: unknown): data is GenreApiResponse => {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    Array.isArray((data as GenreApiResponse).genre_statistics) &&
+    typeof (data as GenreApiResponse).total_genres === "number"
+  );
+};
+
+// Type guard untuk Genre Statistic
+export const isGenreStatistic = (data: unknown): data is GenreStatistic => {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "count" in data &&
+    typeof (data as { count: unknown }).count === "number" &&
+    "genre" in data &&
+    (typeof (data as { genre: unknown }).genre === "string" ||
+      (data as { genre: unknown }).genre === null)
   );
 };

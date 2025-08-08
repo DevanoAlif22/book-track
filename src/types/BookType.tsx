@@ -46,6 +46,7 @@ export interface Book {
   coverImage?: string; // Alternative property name
   publishedYear?: number;
   isbn?: string;
+  no_gm?: string;
   pageCount?: number;
   language?: string;
   publisher?: string;

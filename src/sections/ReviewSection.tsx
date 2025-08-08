@@ -198,7 +198,7 @@ const ReviewSection: React.FC = () => {
                   </div>
 
                   {/* Rating */}
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="flex items-center gap-1 mb-4 ms-8">
                     {renderStars(review.rating)}
                   </div>
 
