@@ -41,12 +41,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
       icon: Moon,
       description: "Dark theme for low light",
     },
-    {
-      key: "system" as const,
-      label: "System",
-      icon: Monitor,
-      description: "Follow system preference",
-    },
   ];
 
   if (variant === "switch") {

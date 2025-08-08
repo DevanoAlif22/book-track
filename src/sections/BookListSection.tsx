@@ -8,33 +8,11 @@ import {
   X,
 } from "lucide-react";
 import BookCard from "../components/BookCard";
+import BookSkeleton from "../components/ui/BookSkeleton";
 import { useBookSearch } from "../hooks/useBookSearch";
 import { PaginationService } from "../services/paginationService";
 import { ScrollUtils } from "../utils/scrollUtils";
 import { BOOK_CONSTANTS } from "../constants/bookConstants";
-
-const BookSkeleton: React.FC = () => (
-  <div className="bg-theme-card rounded-xl shadow-lg overflow-hidden animate-pulse border border-theme transition-colors duration-300">
-    <div className="h-72 bg-gray-300 dark:bg-gray-600"></div>
-    <div className="p-6">
-      <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded mb-3"></div>
-      <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-2/3 mb-3"></div>
-      <div className="flex justify-between mb-4">
-        <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-24"></div>
-        <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-16"></div>
-      </div>
-      <div className="flex space-x-2 mb-4">
-        <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded-full w-16"></div>
-        <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded-full w-20"></div>
-      </div>
-      <div className="space-y-2 mb-4">
-        <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded mt-[-30px]"></div>
-        <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-5/6"></div>
-      </div>
-      <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-32"></div>
-    </div>
-  </div>
-);
 
 const IndonesianBookList: React.FC = () => {
   const [tempSearchTerm, setTempSearchTerm] = useState<string>("");
@@ -158,7 +136,7 @@ const IndonesianBookList: React.FC = () => {
           className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme hover:shadow-md"
         >
           <ChevronLeft className="h-4 w-4" />
-          <span>Sebelumnya</span>
+          {/* <span>Sebelumnya</span> */}
         </button>
 
         {/* Page Numbers */}
@@ -170,7 +148,7 @@ const IndonesianBookList: React.FC = () => {
           disabled={!pagination.hasNextPage}
           className="flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-theme-card text-theme-primary hover:bg-theme-secondary border border-theme hover:shadow-md"
         >
-          <span>Selanjutnya</span>
+          {/* <span>Selanjutnya</span> */}
           <ChevronRight className="h-4 w-4" />
         </button>
       </div>
@@ -285,7 +263,7 @@ const IndonesianBookList: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {Array.from({ length: BOOK_CONSTANTS.SKELETON_ITEMS_COUNT }).map(
             (_, index) => (
-              <BookSkeleton key={index} />
+              <BookSkeleton key={index} index={index} />
             )
           )}
         </div>

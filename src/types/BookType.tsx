@@ -9,6 +9,11 @@ export interface Category {
   url?: string;
 }
 
+export interface CategoryStats {
+  name: string;
+  count: number;
+}
+
 export interface BookDetails {
   no_gm?: string;
   isbn?: string;

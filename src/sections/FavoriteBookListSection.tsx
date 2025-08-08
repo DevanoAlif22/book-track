@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BookOpen, Tag, BarChart3 } from "lucide-react";
 import BookCard from "../components/BookCard";
-import type { Book } from "../types/BookType";
-
-interface CategoryStats {
-  name: string;
-  count: number;
-}
+import type { Book, CategoryStats } from "../types/BookType";
 
 const FavoriteBookList: React.FC = () => {
   const [favorites, setFavorites] = useState<Book[]>([]);
